@@ -41,6 +41,23 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 //   return extractPost(entry);
 // }
 
+export async function getHeader (isDraftMode: boolean): Promise<any> {
+  const entries = await fetchGraphQL(
+    `query {
+		headerCollection(preview: ${isDraftMode ? "true" : "false"}) {
+			items {
+				${HEADER_GRAPHQL_FIELDS}
+			}
+		}
+    }`,
+    isDraftMode,
+  );
+
+  return {
+    headers: entries?.data?.headerCollection?.items || []
+  };
+}
+
 export async function getHomePage (isDraftMode: boolean): Promise<any> {
   const entries = await fetchGraphQL(
     `query {

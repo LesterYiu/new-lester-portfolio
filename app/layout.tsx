@@ -1,5 +1,8 @@
+import { draftMode } from "next/headers";
+import Header from "./components/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { getHeader } from "@/lib/api";
 
 export const metadata = {
   title: `Lester Yiu - Developer`,
@@ -12,18 +15,30 @@ const inter = Inter({
   display: "swap",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className={inter.variable}>
-      <body>
-        <section className="min-h-screen">
-          <main>{children}</main>
-        </section>
-      </body>
-    </html>
-  );
+
+	const { isEnabled } = draftMode();
+	const results = await getHeader( isEnabled );
+	const headerCollection = results.headers[ 0 ];
+
+	return (
+		<html lang="en" className={inter.variable}>
+			<body>
+				<Header 
+					{
+						...{
+							...headerCollection
+						}
+					}
+				/>
+				<section className="min-h-screen">
+					<main>{children}</main>
+				</section>
+			</body>
+		</html>
+	);
 }

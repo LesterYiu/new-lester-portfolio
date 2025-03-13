@@ -29,9 +29,11 @@ export const POST_GRAPHQL_FIELDS = `
 `;
 
 export const HEADER_GRAPHQL_FIELDS = `
-  title
-  links {
-    title
-    link
-  }
+	title
+	navigationCollection {
+        items {
+          title
+          link
+        }
+	}
 `
