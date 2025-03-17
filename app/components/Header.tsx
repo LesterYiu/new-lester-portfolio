@@ -45,13 +45,13 @@ const Header = ({
                 }
             }
         >
-            <div className="flex items-center justify-between j w-full max-w-screen-lg mx-auto mt-4 px-4">
+            <div className="flex items-center justify-between j w-full max-w-screen-lg mx-auto my-4 px-4">
                 <img 
                     {
                         ...{
                             src : Logo?.src,
                             alt : '',
-                            className : 'w-20 md:w-28 h-auto'
+                            className : 'w-20 h-auto'
                         }
                     }
                 />

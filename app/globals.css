@@ -11,5 +11,9 @@
 }
 
 .headroom--unpinned {
-	transform: translateY( -130px );
+	transform: translateY( -120px );
+}
+
+.headroom--not-top {
+    background-color: rgb(246 253 243/var(--tw-bg-opacity, 0.75));
 }
