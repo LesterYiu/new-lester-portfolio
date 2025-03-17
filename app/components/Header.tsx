@@ -2,7 +2,7 @@
 
 import Headroom from "headroom.js"
 import { useEffect, useRef } from "react";
-import Logo from "@/public/Logo-header.png";
+import Logo from "@/public/logo-header.png";
 import { GearLogo } from '@/app/utility/svgs';
 
 interface Link {
