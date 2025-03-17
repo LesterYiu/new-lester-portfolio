@@ -20,7 +20,7 @@ const Header = ({
         <header>
             { items &&
                 items.map( ( i, key ) => {
-                    console.log( i, key )
+
                     return (
                         <a key={ key }
                             {
