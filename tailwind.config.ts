@@ -11,6 +11,8 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-inter)"],
+				outfit : ["Outfit", "sans-serif"],
+				jost : [ "Jost", "sans-serif" ]
 			},
 			colors: {
 				green : '#B1D2A4',

@@ -8,7 +8,7 @@ export default async function Page() {
 	// console.log(results)
 
 	return (
-		<div className="bg-gradient-to-b from-green to-white w-full h-[100vh]">
+		<div className="bg-gradient-to-b from-green to-white w-full h-[200vh]">
 
 		</div>
 	);

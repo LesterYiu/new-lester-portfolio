@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.headroom {
+    position: fixed;
+}
+
+.headroom--pinned {
+	transform: translateY( 0px );
+}
+
+.headroom--unpinned {
+	transform: translateY( -130px );
+}
