@@ -10,7 +10,13 @@ const ContentCollection = ({ result }: PropsObject) => {
         
         return (
 
-            <Hero />
+            <Hero 
+                {
+                    ...{
+                        ...result
+                    }
+                }
+            />
 
         )
 

@@ -9,40 +9,45 @@ export const IMAGE_GRAPHQL_FIELDS = `
 	height
 `
 
+export const LINK_GRAPHQL_FIELDS = `
+	title
+	link
+`
+
 export const HEADER_GRAPHQL_FIELDS = `
 	title
-	navigationCollection (limit: 5) {
+	navigationCollection ( limit : 5 ) {
 		items {
-			title
-			link
+			${ LINK_GRAPHQL_FIELDS }
 		}
 	}
 `
 
 export const HERO_GRAPHQL_FIELDS = `
+	type: __typename
 	title
-	image
 	heading
 	subheading
 	description
+	image {
+		${ IMAGE_GRAPHQL_FIELDS }
+	}
+	linksCollection ( limit : 2 ) {
+		items {
+			${ LINK_GRAPHQL_FIELDS }
+		}
+	}
 `
 
 export const PAGE_GRAPHQL_FIELDS = `
 	title
 	slug
 	header {
-		${HEADER_GRAPHQL_FIELDS}
+		${ HEADER_GRAPHQL_FIELDS }
 	}
-	contentBlocksCollection (limit: 5) {
+	contentBlocksCollection ( limit : 5 ) {
 		items {
-			type: __typename
-			title
-			heading
-			subheading
-			description
-			image {
-				${IMAGE_GRAPHQL_FIELDS}
-			}
+			${ HERO_GRAPHQL_FIELDS }
 		}
 	}
 `

@@ -11,7 +11,7 @@
 }
 
 .headroom--unpinned {
-	transform: translateY( -120px );
+	transform: translateY( -150px );
 }
 
 .headroom--not-top {

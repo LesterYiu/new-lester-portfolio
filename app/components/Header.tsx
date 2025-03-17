@@ -45,7 +45,7 @@ const Header = ({
                 }
             }
         >
-            <div className="flex items-center justify-between j w-full max-w-screen-lg mx-auto my-4 px-4">
+            <div className="h-[100px] w-full flex items-center justify-between max-w-screen-lg mx-auto my-4 px-4">
                 <img 
                     {
                         ...{
