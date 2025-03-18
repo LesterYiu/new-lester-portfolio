@@ -77,7 +77,7 @@ const Hero = ({
                     }
                 </div>
                 { image &&
-                    <div className="lg:w-1/2 relative w-full lg:mt-16 lg:mt-0">
+                    <div className='lg:w-1/2 relative w-full mb-4 lg:mb-0'>
                         <Image
                             {
                                 ...{

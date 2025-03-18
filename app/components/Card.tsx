@@ -20,7 +20,7 @@ export const Card = ({
         <section 
             {
                 ...{
-                    className : 'wrapper-custom section-pb flex flex-col ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse')
+                    className : 'wrapper-custom section-pb flex flex-col-reverse ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse')
                 }
             }
         >
@@ -66,7 +66,7 @@ export const Card = ({
                 }
             </div>
             { image &&
-                <div className="lg:w-1/2 relative w-full mt-16 lg:mt-0">
+                <div className='lg:w-1/2 relative w-full mb-4 lg:mb-0'>
                     <Image
                         {
                             ...{
