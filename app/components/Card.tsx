@@ -1,22 +1,26 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { ResultObj } from '@/app/utility/types';
+import { Link, ResultObj } from '@/app/utility/types';
 import { options } from '@/app/utility/contentful-richtext';
 import Image from 'next/image';
 import HeroBackground from "@/public/blob-2.png";
+import { RenderLinkSvg  } from '../utility/utility-functions';
 
 export const Card = ({ 
     cardDescription, 
     heading, 
     subheading, 
     alignment, 
-    image 
+    image,
+    linksCollection
 } : ResultObj ) => {
+
+    const linksArr = linksCollection?.items;
 
     return (
         <section 
             {
                 ...{
-                    className : 'wrapper-custom flex flex-col ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse')
+                    className : 'wrapper-custom section-pb flex flex-col ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse')
                 }
             }
         >
@@ -38,6 +42,26 @@ export const Card = ({
                         {
                             documentToReactComponents( cardDescription.json, options)
                         }
+                    </div>
+                }
+                { linksCollection &&
+                    <div className='lg:justify-start flex justify-center space-x-8 lg:space-x-4'>
+                        { linksArr.map( ( i : Link, key : number ) => {
+                            return (
+                                <a key={ key }
+                                    {
+                                        ...{
+                                            href : i.link,
+                                            className : 'lg:w-[45px] lg:h-[45px] w-[60px] h-[60px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full',
+                                            target : ( i?.target?.[ 0 ] == 'Blank' ? '_blank' : '_self'),
+                                            rel : 'noopener'
+                                        }
+                                    }
+                                >
+                                    { RenderLinkSvg( i?.svg?.[ 0 ], 'lg:w-6 w-8 fill-white' )}
+                                </a>
+                            );
+                        })}
                     </div>
                 }
             </div>

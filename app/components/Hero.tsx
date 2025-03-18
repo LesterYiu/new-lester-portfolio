@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeroBackground from "@/public/blob.png";
 import WaveImage from "@/public/wave.png";
-import { ContactLogo, DownloadLogo } from "../utility/svgs";
+import { MailLogo, DownloadLogo } from "../utility/svgs";
 import { ResultObj } from "../utility/types";
 
 interface LinkObject {
@@ -20,8 +20,8 @@ const Hero = ({
     const links = linksCollection?.items;
 
     return (
-        <section className='pt-[132px] pb-[165px] relative bg-gradient-to-b from-green to-white w-full'>
-            <div className='lg:flex-row md:space-x-8 wrapper-custom flex-col flex items-center'>
+        <section className='lg:pb-[165px] pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
+            <div className='lg:flex-row lg:space-x-8 wrapper-custom flex-col-reverse flex items-center'>
                 <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&
                         <p className='primary-heading-custom'>
@@ -53,7 +53,7 @@ const Hero = ({
                                         >
                                             { i?.title }
                                             { key === 0 ? 
-                                            <ContactLogo 
+                                            <MailLogo 
                                                 {
                                                     ...{
                                                         className : 'w-5 ml-1'
@@ -77,7 +77,7 @@ const Hero = ({
                     }
                 </div>
                 { image &&
-                    <div className="lg:w-1/2 relative w-full mt-16 lg:mt-0">
+                    <div className="lg:w-1/2 relative w-full lg:mt-16 lg:mt-0">
                         <Image
                             {
                                 ...{

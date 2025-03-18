@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .wrapper-custom {
-    @apply max-w-screen-lg mx-auto my-4 px-4;
+    @apply max-w-screen-lg mx-auto px-4;
+}
+
+.section-pb {
+    @apply pb-[125px];
 }
 
 .primary-heading-custom {

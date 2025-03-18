@@ -12,6 +12,8 @@ export const IMAGE_GRAPHQL_FIELDS = `
 export const LINK_GRAPHQL_FIELDS = `
 	title
 	link
+	svg
+	target
 `
 
 export const HEADER_GRAPHQL_FIELDS = `
@@ -51,6 +53,11 @@ export const CARD_GRAPHQL_FIELDS = `
 		${ IMAGE_GRAPHQL_FIELDS }
 	}
 	alignment
+	linksCollection ( limit : 3 ) {
+		items {
+			${ LINK_GRAPHQL_FIELDS }
+		}
+	}
 `
 
 export const PAGE_GRAPHQL_FIELDS = `

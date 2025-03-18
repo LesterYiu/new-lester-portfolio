@@ -50,7 +50,9 @@ export default async function RootLayout({
 			</head>
 			<body>
 				<section className="min-h-screen">
-					<main>{children}</main>
+					<main>
+						{ children }
+					</main>
 				</section>
 			</body>
 		</html>

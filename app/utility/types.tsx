@@ -6,6 +6,8 @@ export interface ResultObj {
 export interface Link {
     title : string;
     link : string;
+    svg : [ string ];
+    target : string;
 }
 
 export interface PropsObj {
