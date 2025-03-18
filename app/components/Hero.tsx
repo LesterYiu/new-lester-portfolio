@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroBackground from "@/public/blob.png";
+import { ContactLogo, DownloadLogo } from "../utility/svgs";
 
 interface PropsObject {
     [ key: string ]: any
@@ -16,8 +17,8 @@ const Hero = ({ heading, subheading, description, image, linksCollection } : Pro
 
     return (
         <section className="pt-[132px]">
-            <div className="md:flex-row flex-col max-w-screen-lg mx-auto my-4 px-4 flex items-center md:space-x-8">
-                <div className="w-full md:w-1/2 space-y-8">
+            <div className="lg:flex-row flex-col max-w-screen-lg mx-auto my-4 px-4 flex items-center md:space-x-8">
+                <div className="lg:w-1/2 w-full space-y-8">
                     { heading &&
                         <p className="font-jost text-base uppercase">
                             { heading }
@@ -34,7 +35,7 @@ const Hero = ({ heading, subheading, description, image, linksCollection } : Pro
                         </p>
                     }
                     { links &&
-                        <div className="space-x-4">
+                        <div className="md:flex-row md:space-x-4 space-y-4 md:space-y-0 flex-col flex">
                             {
                                 links.map ( ( i : LinkObject, key : number ) => {
                                     return (
@@ -42,11 +43,28 @@ const Hero = ({ heading, subheading, description, image, linksCollection } : Pro
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'font-jost text-white text-lg px-10 py-3 rounded-3xl ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
+                                                    className : 'font-jost text-white text-lg px-10 py-2.5 rounded-3xl text-center flex items-center justify-center ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
                                                 }
                                             }
                                         >
                                             { i?.title }
+                                            { key === 0 ? 
+                                            <ContactLogo 
+                                                {
+                                                    ...{
+                                                        className : 'w-5 ml-1'
+                                                    }
+                                                }
+                                            />
+                                            :
+                                            <DownloadLogo 
+                                                {
+                                                    ...{
+                                                        className : 'w-6 pb-[2px]'
+                                                    }
+                                                }
+                                            />
+                                            }
                                         </a>
                                     )
                                 })
@@ -55,7 +73,7 @@ const Hero = ({ heading, subheading, description, image, linksCollection } : Pro
                     }
                 </div>
                 { image &&
-                    <div className="relative w-full md:w-1/2 mt-8 md:mt-0">
+                    <div className="lg:w-1/2 relative w-full mt-16 lg:mt-0">
                         <Image
                             {
                                 ...{
