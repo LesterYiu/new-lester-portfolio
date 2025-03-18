@@ -1,41 +1,44 @@
 import Image from "next/image";
 import HeroBackground from "@/public/blob.png";
 import { ContactLogo, DownloadLogo } from "../utility/svgs";
-
-interface PropsObject {
-    [ key: string ]: any
-}
+import { ResultObj } from "../utility/types";
 
 interface LinkObject {
     title : string,
     link : string
 }
 
-const Hero = ({ heading, subheading, description, image, linksCollection } : PropsObject) => {
+const Hero = ({ 
+    heading, 
+    subheading, 
+    description, 
+    image, 
+    linksCollection 
+} : ResultObj) => {
 
     const links = linksCollection?.items;
 
     return (
-        <section className="pt-[132px]">
-            <div className="lg:flex-row flex-col max-w-screen-lg mx-auto my-4 px-4 flex items-center md:space-x-8">
-                <div className="lg:w-1/2 w-full space-y-8">
+        <section className='pt-[132px]'>
+            <div className='lg:flex-row md:space-x-8 flex-col max-w-screen-lg mx-auto my-4 px-4 flex items-center'>
+                <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&
-                        <p className="font-jost text-base uppercase">
+                        <p className='font-jost text-base uppercase'>
                             { heading }
                         </p>
                     }
                     { subheading &&
-                        <h1 className="font-jost text-6xl font-semibold">
+                        <h1 className='font-jost text-6xl font-semibold'>
                             { subheading }
                         </h1>
                     }
                     { description &&
-                        <p className="font-jost text-lg">
+                        <p className='font-jost text-lg'>
                             { description }
                         </p>
                     }
                     { links &&
-                        <div className="md:flex-row md:space-x-4 space-y-4 md:space-y-0 flex-col flex">
+                        <div className='md:flex-row md:space-x-4 md:space-y-0 space-y-4 flex-col flex'>
                             {
                                 links.map ( ( i : LinkObject, key : number ) => {
                                     return (

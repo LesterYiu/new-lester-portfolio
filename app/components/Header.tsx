@@ -1,14 +1,10 @@
 'use client'
 
-import Headroom from "headroom.js"
-import { useEffect, useRef } from "react";
-import Logo from "@/public/logo-header.png";
+import Headroom from 'headroom.js';
+import { useEffect, useRef } from 'react';
+import Logo from '@/public/logo-header.png';
 import { GearLogo } from '@/app/utility/svgs';
-
-interface Link {
-    title : string;
-    link : string;
-}
+import { Link } from '../utility/types';
 
 interface HeaderProps {
     title : string;
@@ -45,7 +41,7 @@ const Header = ({
                 }
             }
         >
-            <div className="h-[100px] w-full flex items-center justify-between max-w-screen-lg mx-auto my-4 px-4">
+            <div className='h-[100px] w-full flex items-center justify-between max-w-screen-lg mx-auto my-4 px-4'>
                 <img 
                     {
                         ...{
@@ -56,7 +52,7 @@ const Header = ({
                     }
                 />
                 <div>
-                    <ul className="flex items-center space-x-10">
+                    <ul className='flex items-center space-x-10'>
                         { items &&
                             items.map( ( i, key ) => {
 
@@ -83,7 +79,7 @@ const Header = ({
                             })
                         }
                         <li>
-                            <button className="bg-white p-1 rounded-full">
+                            <button className='bg-white p-1 rounded-full'>
                                 <GearLogo 
                                     {
                                         ...{

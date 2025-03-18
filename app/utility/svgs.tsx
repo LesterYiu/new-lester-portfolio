@@ -1,8 +1,6 @@
-interface PropsObject {
-    [ key: string ]: any
-}
+import { PropsObj } from "./types";
 
-export const GearLogo = ( props : PropsObject ) => {
+export const GearLogo = ( props : PropsObj ) => {
 
     return (
         <svg 
@@ -20,7 +18,7 @@ export const GearLogo = ( props : PropsObject ) => {
 
 }
 
-export const DownloadLogo = ( props : PropsObject ) => {
+export const DownloadLogo = ( props : PropsObj ) => {
 
     return (
         <svg 
@@ -41,7 +39,7 @@ export const DownloadLogo = ( props : PropsObject ) => {
 
 }
 
-export const ContactLogo = ( props : PropsObject ) => {
+export const ContactLogo = ( props : PropsObj ) => {
 
     return (
         <svg 

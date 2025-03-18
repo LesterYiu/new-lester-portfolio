@@ -39,6 +39,20 @@ export const HERO_GRAPHQL_FIELDS = `
 	}
 `
 
+export const CARD_GRAPHQL_FIELDS = `
+	type: __typename
+	title
+	heading
+	subheading
+	cardDescription : description {
+		json
+	}
+	image {
+		${ IMAGE_GRAPHQL_FIELDS }
+	}
+	alignment
+`
+
 export const PAGE_GRAPHQL_FIELDS = `
 	title
 	slug
@@ -47,7 +61,12 @@ export const PAGE_GRAPHQL_FIELDS = `
 	}
 	contentBlocksCollection ( limit : 5 ) {
 		items {
-			${ HERO_GRAPHQL_FIELDS }
+			... on Hero {
+				${ HERO_GRAPHQL_FIELDS }
+			}
+			... on Card {
+				${ CARD_GRAPHQL_FIELDS }
+			}
 		}
 	}
 `

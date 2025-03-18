@@ -2,10 +2,7 @@ import { draftMode } from "next/headers";
 import { getPageData } from "@/lib/api";
 import Header from "./components/Header";
 import ContentCollection from "@/app/utility/content-collection";
-
-interface PropsObject {
-    [ key: string ]: any
-}
+import { ResultObj } from "./utility/types";
 
 export default async function Page() {
 
@@ -26,12 +23,13 @@ export default async function Page() {
 				/>
 			}
 			{ results?.contentBlocksCollection.items.length &&
-				contentCollection.map ( ( i : PropsObject, key : number ) => {
+				contentCollection.map ( ( i : ResultObj, key : number ) => {
 					return (
 						<ContentCollection key={ key }
 							{
 								...{
-									result : i
+									result : i,
+									type : i.type
 								}
 							}
 						/>
