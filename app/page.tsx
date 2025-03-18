@@ -12,7 +12,7 @@ export default async function Page() {
 	const contentCollection = results?.contentBlocksCollection?.items;
 
 	return (
-		<div className="bg-gradient-to-b from-green to-white w-full h-[200vh]">
+		<div>
 			{ headerData &&
 				<Header 
 					{

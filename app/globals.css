@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.wrapper-custom {
+    @apply max-w-screen-lg mx-auto my-4 px-4;
+}
+
+.primary-heading-custom {
+    @apply font-jost text-base uppercase;
+}
+
+.secondary-heading-custom {
+    @apply font-jost text-6xl font-semibold;
+}
+
+.tertiary-heading-custom {
+    @apply font-jost text-4xl font-medium;
+}
+
+.description-custom {
+    @apply font-jost text-lg;
+}
+
 .headroom {
     position: fixed;
 }

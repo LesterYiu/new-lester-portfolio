@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroBackground from "@/public/blob.png";
+import WaveImage from "@/public/wave.png";
 import { ContactLogo, DownloadLogo } from "../utility/svgs";
 import { ResultObj } from "../utility/types";
 
@@ -19,21 +20,21 @@ const Hero = ({
     const links = linksCollection?.items;
 
     return (
-        <section className='pt-[132px]'>
-            <div className='lg:flex-row md:space-x-8 flex-col max-w-screen-lg mx-auto my-4 px-4 flex items-center'>
+        <section className='pt-[132px] pb-[165px] relative bg-gradient-to-b from-green to-white w-full'>
+            <div className='lg:flex-row md:space-x-8 wrapper-custom flex-col flex items-center'>
                 <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&
-                        <p className='font-jost text-base uppercase'>
+                        <p className='primary-heading-custom'>
                             { heading }
                         </p>
                     }
                     { subheading &&
-                        <h1 className='font-jost text-6xl font-semibold'>
+                        <h1 className='secondary-heading-custom'>
                             { subheading }
                         </h1>
                     }
                     { description &&
-                        <p className='font-jost text-lg'>
+                        <p className='description-custom'>
                             { description }
                         </p>
                     }
@@ -104,6 +105,18 @@ const Hero = ({
                     </div>
                 }
             </div>
+            <Image
+                {
+                    ...{
+                        src : WaveImage?.src,
+                        alt : image?.description,
+                        width : 2000,
+                        height : 175,
+                        quality : 100,
+                        className : 'absolute w-full left-0 bottom-0 h-[125px]'
+                    }
+                }
+            />
         </section>
     )
 

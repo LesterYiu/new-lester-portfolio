@@ -37,11 +37,11 @@ const Header = ({
             {
                 ...{
                     ref : headerRef,
-                    className : 'w-full ease-in-out duration-500 headroom'
+                    className : 'z-[100] w-full ease-in-out duration-500 headroom'
                 }
             }
         >
-            <div className='h-[100px] w-full flex items-center justify-between max-w-screen-lg mx-auto my-4 px-4'>
+            <div className='wrapper-custom h-[100px] w-full flex items-center justify-between'>
                 <img 
                     {
                         ...{
