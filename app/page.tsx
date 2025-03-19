@@ -3,6 +3,7 @@ import { getPageData } from "@/lib/api";
 import Header from "./components/Header";
 import ContentCollection from "@/app/utility/content-collection";
 import { ResultObj } from "./utility/types";
+import FeatureCarousel from "./components/Feature-Carousel";
 
 export default async function Page() {
 

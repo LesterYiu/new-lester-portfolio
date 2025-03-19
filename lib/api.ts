@@ -1,8 +1,8 @@
 import { PAGE_GRAPHQL_FIELDS } from "@/app/utility/contentful-query"
 
-async function fetchGraphQL(query: string, preview = false): Promise<any> {
+async function fetchGraphQL( query: string, preview = false ): Promise<any> {
 	return fetch(
-		`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+		`https://graphql.contentful.com/content/v1/spaces/${ process.env.CONTENTFUL_SPACE_ID }`,
 		{
 		method: "POST",
 		headers: {
@@ -16,20 +16,20 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 		body: JSON.stringify({ query }),
 		next: { revalidate: 10 },
 		},
-	).then((response) => response.json());
+	).then(( response ) => response.json());
 }
 
-export async function getPageData (isDraftMode : boolean, slug : String): Promise<any> {
+export async function getPageData ( isDraftMode : boolean, slug : String ): Promise<any> {
 	const entries = await fetchGraphQL(
 		`query {
 			pageCollection(limit: 1, where: { slug: "${ slug }" }, preview: ${isDraftMode ? "true" : "false"}) {
 				items {
-					${PAGE_GRAPHQL_FIELDS}
+					${ PAGE_GRAPHQL_FIELDS }
 				}
 			}
 		}`,
 		isDraftMode,
 	);
 
-	return entries?.data?.pageCollection?.items[0];
+	return entries?.data?.pageCollection?.items[ 0 ];
 }

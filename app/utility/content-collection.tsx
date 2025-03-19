@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import FeatureCarousel from "../components/Feature-Carousel";
 import Hero from "../components/Hero";
 import { ResultObj } from "./types";
 
@@ -19,7 +20,7 @@ const ContentCollection = ({
                 }
             />
 
-        )
+        );
 
     }
 
@@ -35,7 +36,23 @@ const ContentCollection = ({
                 }
             />
 
-        )
+        );
+
+    }
+
+    if ( type == 'Carousel' ) {
+
+        return (
+
+            <FeatureCarousel 
+                {
+                    ...{
+                        ...result
+                    }
+                }
+            />
+
+        );
 
     }
 

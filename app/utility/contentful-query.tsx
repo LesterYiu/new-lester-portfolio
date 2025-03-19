@@ -60,6 +60,25 @@ export const CARD_GRAPHQL_FIELDS = `
 	}
 `
 
+export const FEATURE_GRAPHQL_FIELDS = `
+	title
+	description
+	image {
+		${ IMAGE_GRAPHQL_FIELDS }
+	}
+`
+
+export const FEATURE_CAROUSEL_GRAPHQL_FIELDS = `
+	type: __typename
+	title
+	subheading
+	featureCardsCollection ( limit : 10 ) {
+		items {
+			${ FEATURE_GRAPHQL_FIELDS }
+		}
+	}
+`
+
 export const PAGE_GRAPHQL_FIELDS = `
 	title
 	slug
@@ -73,6 +92,9 @@ export const PAGE_GRAPHQL_FIELDS = `
 			}
 			... on Card {
 				${ CARD_GRAPHQL_FIELDS }
+			}
+			... on Carousel {
+				${ FEATURE_CAROUSEL_GRAPHQL_FIELDS }
 			}
 		}
 	}

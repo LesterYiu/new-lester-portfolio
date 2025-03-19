@@ -13,3 +13,9 @@ export interface Link {
 export interface PropsObj {
     [ key: string ]: any
 }
+
+export interface ImageObj {
+    type : string;
+    url : string;
+    [ key: string ]: any
+}

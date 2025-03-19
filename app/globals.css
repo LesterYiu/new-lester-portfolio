@@ -41,3 +41,11 @@
 .headroom--not-top {
     background-color: rgb(246 253 243/var(--tw-bg-opacity, 0.75));
 }
+
+.react-multi-carousel-item {
+    padding-right: 1rem;
+}
+
+.react-multi-carousel-list {
+    position: static !important;
+}
