@@ -49,3 +49,7 @@
 .react-multi-carousel-list {
     position: static !important;
 }
+
+.react-multi-carousel-dot--active button {
+    background : #5D8D4B !important;
+}

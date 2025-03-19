@@ -26,7 +26,7 @@ export const FeatureCarousel = ( { featureCardsCollection, title, subheading } :
 	if ( ! carouselArr?.length ) return;
 
     return (
-		<div className='relative max-w-[1024px] mx-auto pl-4 space-y-4'>
+		<div className='relative max-w-[1024px] mx-auto pl-4 space-y-4 pb-8'>
 			<p className='primary-heading-custom'>
 				{ title }
 			</p>
@@ -66,7 +66,8 @@ export const FeatureCarousel = ( { featureCardsCollection, title, subheading } :
 						infinite : true,
 						ssr : true,
 						arrows : false,
-						customButtonGroup : <ButtonGroup />
+						customButtonGroup : <ButtonGroup />,
+						showDots : true
 					}
 				}
 			>

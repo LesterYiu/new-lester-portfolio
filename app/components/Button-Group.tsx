@@ -3,7 +3,7 @@ import { LeftChevron, RightChevron } from "../utility/svgs";
 export const ButtonGroup = ({ next, previous, goToSlide, ...rest } : any ) => {
     const { carouselState: { currentSlide } } = rest;
     return (
-      <div className='carousel-button-group absolute top-0 right-4 flex space-x-4'>
+      <div className='hidden md:inline-block carousel-button-group absolute top-0 right-4 flex space-x-4'>
             <button 
                 {
                     ...{

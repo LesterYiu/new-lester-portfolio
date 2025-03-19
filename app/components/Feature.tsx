@@ -13,13 +13,13 @@ export const Feature = ({ title, description, image } : FeatureObj) => {
 		<div
 			{
 				...{
-					className : 'relative h-[400px] md:h-[500px] bg-cover w-full bg-bottom border rounded-2xl'
+					className : 'relative sh-[500px] bg-cover w-full bg-bottom border rounded-2xl'
 				}
 			}
 		>
-			<div className="relative z-20 max-w-screen-lg m-auto w-full h-full text-white space-y-4 p-6 text-center">
+			<div className="relative space-y-4 p-6 flex flex-col">
                 { image &&
-                    <img className="select-none pointer-events-none" src={ image?.url } alt="" />
+                    <img className="select-none pointer-events-none h-48 object-contain" src={ image?.url } alt="" />
                 }
 				{ title &&
                     <h2 className="font-jost text-2xl text-black text-left font-medium whitespace-break-spaces">
