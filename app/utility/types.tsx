@@ -6,7 +6,7 @@ export interface ResultObj {
 export interface Link {
     title : string;
     link : string;
-    svg : [ string ];
+    svg : string;
     target : string;
 }
 

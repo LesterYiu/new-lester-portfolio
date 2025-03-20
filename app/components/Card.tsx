@@ -4,6 +4,7 @@ import { options } from '@/app/utility/contentful-richtext';
 import Image from 'next/image';
 import HeroBackground from "@/public/blob-2.png";
 import { RenderLinkSvg  } from '../utility/utility-functions';
+import { StarSvg } from '../utility/svgs';
 
 export const Card = ({ 
     cardDescription, 
@@ -31,12 +32,16 @@ export const Card = ({
                     }
                 }
             >
-                <p className='primary-heading-custom'>
+                <p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
                     { heading }
                 </p>
-                <h2 className='tertiary-heading-custom'>
-                    { subheading }
-                </h2>
+                <div className="flex items-center space-x-2">
+                    <StarSvg className="w-6 h-6" />
+                    <h2 className='tertiary-heading-custom'>
+                        { subheading }
+                    </h2>
+                    <StarSvg className="w-6 h-6" />
+                </div>
                 { cardDescription.json &&
                     <div className='space-y-4'>
                         {
@@ -53,12 +58,12 @@ export const Card = ({
                                         ...{
                                             href : i.link,
                                             className : 'lg:w-[45px] lg:h-[45px] w-[60px] h-[60px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full',
-                                            target : ( i?.target?.[ 0 ] == 'Blank' ? '_blank' : '_self'),
+                                            target : ( i.target == 'Blank' ? '_blank' : '_self'),
                                             rel : 'noopener'
                                         }
                                     }
                                 >
-                                    { RenderLinkSvg( i?.svg?.[ 0 ], 'lg:w-6 w-8 fill-white' )}
+                                    { RenderLinkSvg( i.svg, 'lg:w-6 w-8 fill-white' )}
                                 </a>
                             );
                         })}

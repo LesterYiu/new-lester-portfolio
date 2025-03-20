@@ -5,6 +5,7 @@ import Carousel from 'react-multi-carousel';
 import { ImageObj } from '../utility/types';
 import Feature from './Feature';
 import ButtonGroup from "./Button-Group";
+import { StarSvg } from "../utility/svgs";
 
 interface Collection {
 	featureCardsCollection : {
@@ -26,13 +27,17 @@ export const FeatureCarousel = ( { featureCardsCollection, title, subheading } :
 	if ( ! carouselArr?.length ) return;
 
     return (
-		<div className='relative max-w-[1024px] mx-auto pl-4 space-y-4 pb-8'>
-			<p className='primary-heading-custom'>
+		<div className='md:pb-0 relative max-w-[1024px] mx-auto pl-4 space-y-4 pb-8 mb-[125px]'>
+			<p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
 				{ title }
 			</p>
-			<h2 className='tertiary-heading-custom'>
-				{ subheading }
-			</h2>
+			<div className="flex items-center space-x-2">
+				<StarSvg className="w-6 h-6" />
+				<h2 className='tertiary-heading-custom'>
+					{ subheading }
+				</h2>
+				<StarSvg className="w-6 h-6" />
+			</div>
 			<Carousel 
 				{
 					...{
@@ -77,7 +82,10 @@ export const FeatureCarousel = ( { featureCardsCollection, title, subheading } :
 							<Feature key={ key }
 								{
 									...{
-										...i
+										title : i?.title,
+										description: i?.description,
+										labels: i?.labels,
+										image: i?.image
 									}
 								}
 							/>

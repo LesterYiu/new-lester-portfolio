@@ -7,7 +7,7 @@ export const ButtonGroup = ({ next, previous, goToSlide, ...rest } : any ) => {
             <button 
                 {
                     ...{
-                        className : 'rounded-full shadow p-2 border border-grey ' + ( currentSlide === 0 ? ' disable' : '' ),
+                        className : 'rounded-full shadow p-2 border border-grey transition-transform duration-200 hover:scale-105' + ( currentSlide === 0 ? ' disable' : '' ),
                         onClick : ( () => previous() )
                     }
                 }
@@ -24,7 +24,7 @@ export const ButtonGroup = ({ next, previous, goToSlide, ...rest } : any ) => {
                 {
                     ...{
                         onClick : ( () => next() ),
-                        className : 'rounded-full shadow p-2 border border-grey'
+                        className : 'rounded-full shadow p-2 border border-grey transition-transform duration-200 hover:scale-105'
                     }
                 }
             >

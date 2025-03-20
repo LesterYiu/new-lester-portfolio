@@ -3,7 +3,7 @@
 import Headroom from 'headroom.js';
 import { useEffect, useRef } from 'react';
 import Logo from '@/public/logo-header.png';
-import { GearLogo } from '@/app/utility/svgs';
+import { GearLogo, HamburgerSvg } from '@/app/utility/svgs';
 import { Link } from '../utility/types';
 
 interface HeaderProps {
@@ -52,7 +52,7 @@ const Header = ({
                     }
                 />
                 <div>
-                    <ul className='flex items-center space-x-10'>
+                    <ul className='flex items-center space-x-4 md:space-x-10'>
                         { items &&
                             items.map( ( i, key ) => {
 
@@ -79,7 +79,7 @@ const Header = ({
                             })
                         }
                         <li>
-                            <button className='bg-white p-1 rounded-full'>
+                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
                                 <GearLogo 
                                     {
                                         ...{
@@ -89,9 +89,21 @@ const Header = ({
                                 />
                             </button>
                         </li>
+                        <li className='md:hidden'>
+                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center transition-transform duration-200 hover:scale-105'>
+                                <HamburgerSvg 
+                                    {
+                                        ...{
+                                            className : 'h-5'
+                                        }
+                                    }
+                                />
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
+            <div className='custom-header-border'/>
         </header>
     )
 }

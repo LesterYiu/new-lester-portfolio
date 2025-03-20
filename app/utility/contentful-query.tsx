@@ -66,6 +66,7 @@ export const FEATURE_GRAPHQL_FIELDS = `
 	image {
 		${ IMAGE_GRAPHQL_FIELDS }
 	}
+	labels
 `
 
 export const FEATURE_CAROUSEL_GRAPHQL_FIELDS = `

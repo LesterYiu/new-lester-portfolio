@@ -42,19 +42,16 @@ export const DownloadLogo = ( props : PropsObj ) => {
 export const MailLogo = ( props : PropsObj ) => {
 
     return (
-        <svg 
+        <svg
             {
                 ...{
                     xmlns : 'http://www.w3.org/2000/svg',
-                    fill : 'none',
-                    viewBox : '0 0 24 24',
-                    strokeWidth : '1.5',
-                    stroke : 'currentColor',
+                    viewBox : '0 0 512 512',
                     ...props
                 }
             }
         >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+            <path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
         </svg>
     );
 
@@ -141,6 +138,48 @@ export const RightChevron = ( props : PropsObj ) => {
             >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
+
+    );
+
+}
+
+export const StarSvg = ( props : PropsObj ) => {
+
+    return (
+
+        <svg
+            {
+                ...{
+                    viewBox : '0 0 33 33',
+                    fill : 'none',
+                    xmlns : 'http://www.w3.org/2000/svg',
+                    ...props
+                }
+            }
+        >
+            <path d="M0.909901 0.909923L7.28337 5.4807C12.9838 9.56881 20.6558 9.56881 26.3562 5.4807L32.7297 0.909923L28.1589 7.28339C24.0708 12.9838 24.0708 20.6558 28.1589 26.3563L32.7297 32.7297L26.3562 28.1589C20.6558 24.0708 12.9838 24.0708 7.28337 28.1589L0.909901 32.7297L5.48068 26.3563C9.56879 20.6558 9.56879 12.9838 5.48068 7.28339L0.909901 0.909923Z" fill="#5D8D4B"/>
+        </svg>
+
+    )
+
+}
+
+export const HamburgerSvg = ( props : PropsObj ) => {
+    
+    return (
+
+        <svg
+            {
+                ...{
+                    viewBox : '0 0 69 54',
+                    fill : 'none',
+                    xmlns : 'http://www.w3.org/2000/svg',
+                    ...props
+                }
+            }
+        >
+            <path d="M5 5H64M5 19.6667H42.1329M5 34.3333H52.035M5 49H64" stroke="#2C5E1A" strokeWidth="8.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
 
     );
 

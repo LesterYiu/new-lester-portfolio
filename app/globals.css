@@ -39,7 +39,20 @@
 }
 
 .headroom--not-top {
-    background-color: rgb(246 253 243/var(--tw-bg-opacity, 0.75));
+    background-color: rgb(246 253 243/var(--tw-bg-opacity, 0.95));
+}
+
+.custom-header-border {
+    background-color: transparent;
+    width: 100%;
+    height: 1px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.headroom--not-top .custom-header-border {
+    background-color: #e5e7eb;
+    box-shadow: 0 4px 9px rgba(0,0,0,.047),0 1.54074px 2.86667px rgba(0,0,0,.073),0 .32593px .73333px rgba(0,0,0,.12);
 }
 
 .react-multi-carousel-item {
@@ -52,4 +65,21 @@
 
 .react-multi-carousel-dot--active button {
     background : #5D8D4B !important;
+}
+
+.react-multi-carousel-dot button {
+    border: 1px solid black !important;
+}
+
+.react-multi-carousel-dot-list {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    
+    .react-multi-carousel-dot-list {
+        display: flex !important;
+    }
+    
+
 }
