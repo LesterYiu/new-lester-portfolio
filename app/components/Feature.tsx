@@ -18,7 +18,7 @@ export const Feature = ({
 
 	const onFeatureClick = () => {
 
-		const maxClickTime = 175;
+		const maxClickTime = 300;
 
 		setTimeout( () => {
 
@@ -56,7 +56,7 @@ export const Feature = ({
 						<img 
 							{
 								...{
-									className : 'select-none pointer-events-none h-48 object-contain',
+									className : 'h-48 object-contain',
 									src : image?.url,
 									alt : ''
 								}
@@ -81,7 +81,7 @@ export const Feature = ({
 								<li key={ key }
 									{
 										...{
-											className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap pointer-events-none select-none'
+											className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap'
 										}
 									}
 								>
