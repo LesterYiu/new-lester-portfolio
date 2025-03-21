@@ -30,6 +30,10 @@
     @apply transition-transform duration-200 hover:scale-105;
 }
 
+.interact-none {
+    @apply pointer-events-none select-none;
+}
+
 .headroom {
     position: fixed;
 }
@@ -85,4 +89,8 @@
         display: flex !important;
     }
 
+}
+
+body.popup-active {
+    overflow-y: hidden;
 }

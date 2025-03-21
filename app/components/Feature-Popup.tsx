@@ -1,14 +1,13 @@
 import Image from "next/image";
-import { ExitSvg, LeftChevron, RightChevron, StarSvg } from "../utility/svgs";
-import { FeatureObj } from "../utility/types";
+import { ExitSvg, LeftChevron, RightChevron } from "../utility/svgs";
 import { useEffect, useState } from "react";
+import { FeatureObj } from "../utility/types";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
     isFeatureOpen : boolean;
     setFeatureNum : React.Dispatch<React.SetStateAction<number>>;
     featureNum : number;
-    clickedFeature : FeatureObj | null;
     carouselArr : any;
 }
 
@@ -17,15 +16,24 @@ export const FeaturePopup = ({
     isFeatureOpen, 
     setFeatureNum, 
     featureNum,
-    clickedFeature, 
     carouselArr
 } : FeaturePopupProps ) => {
     
-    const [ currentProject, setCurrentProject ] = useState( clickedFeature );
+    const [ currentProject, setCurrentProject ] = useState<FeatureObj | null>( null );
 
     useEffect( () => {
 
         setCurrentProject( carouselArr[ featureNum ] );
+
+        if ( isFeatureOpen ) {
+
+            document.querySelector('body')?.classList.add( 'popup-active' )
+
+        } else {
+
+            document.querySelector('body')?.classList.remove( 'popup-active' )
+
+        }
 
     }, [ isFeatureOpen, featureNum ])
 
@@ -73,8 +81,14 @@ export const FeaturePopup = ({
                 }
             }
         >
-            <div className='relative h-full w-full wrapper-custom section-pb pt-[36px]'>
-                <div className='flex space-x-8'>
+            <div 
+                {
+                    ...{
+                        className : 'relative h-full w-full wrapper-custom section-pb md:pt-[78px] pt-[48px] space-y-8 ' + ( isFeatureOpen ? 'overflow-y-auto' : '' )
+                    }
+                }
+            >
+                <div className='md:mr-16 md:space-x-8 flex'>
                     { currentProject?.image &&
                         <Image
                             {
@@ -84,42 +98,78 @@ export const FeaturePopup = ({
                                     width : 500,
                                     height : 500,
                                     quality : 100,
-                                    className : 'w-20 h-20 object-contain'
+                                    className : 'md:inline-block hidden w-20 h-20 object-contain bg-white p-1 rounded-2xl'
                                 }
                             }
                         />
                     }
-                    <div className='flex flex-col space-y-2'>
+                    <div className='flex flex-col gap-y-4'>
                         { currentProject?.title &&
-                            <h3 className='font-jost font-medium !text-3xl'>
+                            <h3 className='md:mr-0 mr-14 font-jost font-medium text-3xl'>
                                 { currentProject?.title }
                             </h3>
                         }
-                        { currentProject?.labels &&
-                            <ul 
+                        { currentProject?.image &&
+                            <Image
                                 {
                                     ...{
-                                        className : 'flex space-x-2 ' + ( currentProject?.labels?.length > 2 ? 'md:overflow-x-scroll' : '')
+                                        src : currentProject?.image?.url,
+                                        alt : '',
+                                        width : 500,
+                                        height : 500,
+                                        quality : 100,
+                                        className : 'md:hidden inline-block m-auto w-36 h-36 object-contain'
                                     }
                                 }
-                            >
-                                { currentProject?.labels.map( ( label, key ) => {
-                                return(
-                                    <li key={ key }
-                                        {
-                                            ...{
-                                                className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap pointer-events-none select-none'
-                                            }
+                            />
+                        }
+                        { currentProject?.description &&
+                            <p className='description-custom'>
+                                { currentProject?.description }
+                            </p>
+                        }
+                        { currentProject?.tags &&
+                            <div className='flex gap-x-4 gap-y-2 flex-wrap'>
+                                <p className='description-custom'>
+                                    Project Tech Stack:
+                                </p>
+                                <ul 
+                                    {
+                                        ...{
+                                            className : 'flex gap-x-2 gap-y-2 flex-wrap'
                                         }
-                                    >
-                                        { label }
-                                    </li>
-                                )
-                                })}
-                            </ul>
+                                    }
+                                >
+                                    { currentProject?.tags.map( ( tag : number, key : number ) => {
+                                    return(
+                                        <li key={ key }
+                                            {
+                                                ...{
+                                                    className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap interact-none'
+                                                }
+                                            }
+                                        >
+                                            { tag }
+                                        </li>
+                                    )
+                                    })}
+                                </ul>
+                            </div>
                         }
                     </div>
                 </div>
+                <Image 
+                    {
+                        ...{
+                            src : currentProject?.previewImage?.url,
+                            alt : '',
+                            width : 2000,
+                            height : 2000,
+                            quality : 100,
+                            className : 'relative z-[10] mx-auto max-h-[550px] object-contain'
+                        }
+                    }
+                />
                 <div className="flex justify-between">
                     <button 
                         {
@@ -136,7 +186,9 @@ export const FeaturePopup = ({
                                 }
                             }
                         />
-                        Previous Project
+                        <span className='interact-none'>
+                            Previous Project
+                        </span>
                     </button>
                     <button 
                         {
@@ -146,7 +198,9 @@ export const FeaturePopup = ({
                             }
                         }
                     >
-                        Next Project
+                        <span className='interact-none'>
+                            Next Project
+                        </span>
                         <RightChevron 
                             {
                                 ...{
@@ -159,7 +213,7 @@ export const FeaturePopup = ({
                 <button 
                     {
                         ...{
-                            className : 'absolute right-4 bg-white shadow border rounded-full top-[36px] scale-custom',
+                            className : 'absolute right-4 bg-white shadow border rounded-full top-[36px] scale-custom !m-0',
                             onClick : () => { setIsFeatureOpen ( false ) }
                         }
                     }

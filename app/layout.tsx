@@ -1,6 +1,4 @@
-import { draftMode } from 'next/headers';
 import './globals.css';
-import { getPageData } from '@/lib/api';
 
 export const metadata = {
   title: `Lester Yiu - Developer`,
@@ -12,9 +10,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-	const { isEnabled } = draftMode();
-	const results = await getPageData( isEnabled, '/' );
 
 	return (
 		<html lang='en'>

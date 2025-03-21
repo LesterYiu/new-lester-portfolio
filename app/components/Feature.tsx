@@ -1,5 +1,6 @@
 import { FeatureObj } from '@/app/utility/types';
 import { useState } from 'react';
+import { RightChevron } from '../utility/svgs';
 
 export const Feature = ({ 
 	setIsFeatureOpen,
@@ -19,7 +20,7 @@ export const Feature = ({
 
 	const onFeatureClick = () => {
 
-		const maxClickTime = 300;
+		const maxClickTime = 200;
 
 		setTimeout( () => {
 
@@ -41,7 +42,7 @@ export const Feature = ({
 			<div
 				{
 					...{
-						className : 'h-[450px] relative sh-[500px] bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
+						className : 'group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
 						onMouseDown : onMouseDownClick,
 						onMouseUp : onFeatureClick
 					}
@@ -53,7 +54,7 @@ export const Feature = ({
 							<img 
 								{
 									...{
-										className : 'h-48 object-contain',
+										className : 'h-48 object-contain interact-none',
 										src : image?.url,
 										alt : ''
 									}
@@ -62,7 +63,7 @@ export const Feature = ({
 						</div>
 					}
 					{ title &&
-						<h2 className='font-jost text-2xl text-black text-left font-medium whitespace-break-spaces'>
+						<h2 className='font-jost text-2xl text-black text-left font-medium whitespace-break-spaces interact-none'>
 							{ title }
 						</h2>
 					}
@@ -90,12 +91,17 @@ export const Feature = ({
 						</ul>
 					}
 					{ description &&
-						<p className='font-jost text-md text-left text-black h-full line-clamp-5 md:line-clamp-4'>
+						<p className='line-clamp-3 font-jost text-md text-left text-black h-full interact-none'>
 							{ description }
 						</p>
 					}
+					<div className='font-jost flex space-x-1'>
+						<span className='group-hover:underline'>
+							Read more
+						</span>
+						<RightChevron className='w-6 transition-all duration-200 group-hover:translate-x-1'/>
+					</div>
 				</div>
-				{/* <div className="z-10 absolute top-0 left-0 w-full h-full bg-black opacity-50 mix-blend-multiply"/> */}
 			</div>
 		</>
 

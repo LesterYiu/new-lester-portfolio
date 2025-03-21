@@ -27,5 +27,4 @@ export interface FeatureObj {
 	[ key: string ]: any;
     labels: [ string ];
     setIsFeatureOpen? : React.Dispatch<React.SetStateAction<boolean>>;
-	setClickedFeature?: React.Dispatch<React.SetStateAction<FeatureObj | null>>;
 }

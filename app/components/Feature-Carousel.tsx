@@ -24,8 +24,6 @@ export const FeatureCarousel = ( {
 } : Collection ) => {
 
 	const [ isFeatureOpen, setIsFeatureOpen ] = useState<boolean>( false );
-	
-	const [ clickedFeature, setClickedFeature ] = useState<FeatureObj | null>( null );
 
 	const [ featureNum, setFeatureNum ] = useState( 0 );
 
@@ -112,7 +110,6 @@ export const FeatureCarousel = ( {
 						isFeatureOpen,
 						setFeatureNum,
 						featureNum,
-						clickedFeature,
 						carouselArr
 					}
 				}
