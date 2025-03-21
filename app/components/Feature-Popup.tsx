@@ -1,14 +1,67 @@
 import Image from "next/image";
-import { ExitSvg, StarSvg } from "../utility/svgs";
+import { ExitSvg, LeftChevron, RightChevron, StarSvg } from "../utility/svgs";
 import { FeatureObj } from "../utility/types";
+import { useEffect, useState } from "react";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
-    clickedFeature : FeatureObj | null;
     isFeatureOpen : boolean;
+    setFeatureNum : React.Dispatch<React.SetStateAction<number>>;
+    featureNum : number;
+    clickedFeature : FeatureObj | null;
+    carouselArr : any;
 }
 
-export const FeaturePopup = ({ setIsFeatureOpen, isFeatureOpen, clickedFeature } : FeaturePopupProps ) => {
+export const FeaturePopup = ({ 
+    setIsFeatureOpen, 
+    isFeatureOpen, 
+    setFeatureNum, 
+    featureNum,
+    clickedFeature, 
+    carouselArr
+} : FeaturePopupProps ) => {
+    
+    const [ currentProject, setCurrentProject ] = useState( clickedFeature );
+
+    useEffect( () => {
+
+        setCurrentProject( carouselArr[ featureNum ] );
+
+    }, [ isFeatureOpen, featureNum ])
+
+    const onPrevProject = () => {
+
+        if ( featureNum === 0 ) {
+
+            setCurrentProject( carouselArr[ carouselArr?.length - 1 ] );
+
+            setFeatureNum( carouselArr?.length - 1 );
+
+        } else {
+
+            setCurrentProject( carouselArr[ featureNum - 1 ] );
+
+            setFeatureNum( featureNum - 1);            
+
+        }
+
+    }
+
+    const onNextProject = () => {
+
+        if ( featureNum === carouselArr?.length - 1 ) {
+
+            setCurrentProject( carouselArr[ 0 ] )
+            setFeatureNum( 0 );
+
+        } else {
+         
+            setCurrentProject( carouselArr[ featureNum + 1 ] )
+            setFeatureNum( featureNum + 1 ); 
+        }
+
+
+    }
 
     return (
 
@@ -22,35 +75,35 @@ export const FeaturePopup = ({ setIsFeatureOpen, isFeatureOpen, clickedFeature }
         >
             <div className='relative h-full w-full wrapper-custom section-pb pt-[36px]'>
                 <div className='flex space-x-8'>
-                    { clickedFeature?.image &&
+                    { currentProject?.image &&
                         <Image
                             {
                                 ...{
-                                    src : clickedFeature?.image?.url,
+                                    src : currentProject?.image?.url,
                                     alt : '',
                                     width : 500,
                                     height : 500,
                                     quality : 100,
-                                    className : 'w-20 object-contain'
+                                    className : 'w-20 h-20 object-contain'
                                 }
                             }
                         />
                     }
                     <div className='flex flex-col space-y-2'>
-                        { clickedFeature?.title &&
+                        { currentProject?.title &&
                             <h3 className='font-jost font-medium !text-3xl'>
-                                { clickedFeature?.title }
+                                { currentProject?.title }
                             </h3>
                         }
-                        { clickedFeature?.labels &&
+                        { currentProject?.labels &&
                             <ul 
                                 {
                                     ...{
-                                        className : 'flex space-x-2 ' + ( clickedFeature?.labels?.length > 2 ? 'md:overflow-x-scroll' : '')
+                                        className : 'flex space-x-2 ' + ( currentProject?.labels?.length > 2 ? 'md:overflow-x-scroll' : '')
                                     }
                                 }
                             >
-                                { clickedFeature?.labels.map( ( label, key ) => {
+                                { currentProject?.labels.map( ( label, key ) => {
                                 return(
                                     <li key={ key }
                                         {
@@ -66,6 +119,42 @@ export const FeaturePopup = ({ setIsFeatureOpen, isFeatureOpen, clickedFeature }
                             </ul>
                         }
                     </div>
+                </div>
+                <div className="flex justify-between">
+                    <button 
+                        {
+                            ...{
+                                className : 'font-jost flex items-center',
+                                onClick : onPrevProject
+                            }
+                        }
+                    >
+                        <LeftChevron 
+                            {
+                                ...{
+                                    className : 'h-8 w-8 mr-2'
+                                }
+                            }
+                        />
+                        Previous Project
+                    </button>
+                    <button 
+                        {
+                            ...{
+                                className : 'font-jost flex items-center',
+                                onClick : onNextProject
+                            }
+                        }
+                    >
+                        Next Project
+                        <RightChevron 
+                            {
+                                ...{
+                                    className : 'h-8 w-8 ml-2'
+                                }
+                            }
+                        />
+                    </button>
                 </div>
                 <button 
                     {

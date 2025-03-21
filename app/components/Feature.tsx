@@ -1,13 +1,14 @@
-import { FeatureObj, ImageObj } from '@/app/utility/types';
+import { FeatureObj } from '@/app/utility/types';
 import { useState } from 'react';
 
 export const Feature = ({ 
+	setIsFeatureOpen,
+	setFeatureNum,
+	arrayKey,
 	title, 
 	description, 
 	image, 
 	labels,
-	setIsFeatureOpen,
-	setClickedFeature
 } : FeatureObj ) => {
 
 	const [ clickTime, setClickTime ] = useState<number>( 0 );
@@ -26,13 +27,8 @@ export const Feature = ({
 		
 				setIsFeatureOpen?.( true );
 
-				setClickedFeature?.({
-					title,
-					description,
-					image,
-					labels
-				})
-				
+				setFeatureNum( arrayKey );
+
 			}
 
 		}, 0)
@@ -53,15 +49,17 @@ export const Feature = ({
 			>
 				<div className='relative space-y-4 p-6 flex flex-col h-full'>
 					{ image &&
-						<img 
-							{
-								...{
-									className : 'h-48 object-contain',
-									src : image?.url,
-									alt : ''
+						<div className='h-48 flex justify-center'>
+							<img 
+								{
+									...{
+										className : 'h-48 object-contain',
+										src : image?.url,
+										alt : ''
+									}
 								}
-							}
-						/>
+							/>
+						</div>
 					}
 					{ title &&
 						<h2 className='font-jost text-2xl text-black text-left font-medium whitespace-break-spaces'>

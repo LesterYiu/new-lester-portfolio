@@ -24,7 +24,10 @@ export const FeatureCarousel = ( {
 } : Collection ) => {
 
 	const [ isFeatureOpen, setIsFeatureOpen ] = useState<boolean>( false );
+	
 	const [ clickedFeature, setClickedFeature ] = useState<FeatureObj | null>( null );
+
+	const [ featureNum, setFeatureNum ] = useState( 0 );
 
 	const carouselArr = featureCardsCollection?.items;
 
@@ -88,12 +91,13 @@ export const FeatureCarousel = ( {
 							<Feature key={ key }
 								{
 									...{
+										setIsFeatureOpen,
+										setFeatureNum,
+										arrayKey : key,
 										title : i?.title,
 										description: i?.description,
 										labels: i?.labels,
-										image: i?.image,
-										setIsFeatureOpen,
-										setClickedFeature
+										image: i?.image
 									}
 								}
 							/>
@@ -106,7 +110,10 @@ export const FeatureCarousel = ( {
 					...{
 						setIsFeatureOpen,
 						isFeatureOpen,
-						clickedFeature
+						setFeatureNum,
+						featureNum,
+						clickedFeature,
+						carouselArr
 					}
 				}
 			/>
