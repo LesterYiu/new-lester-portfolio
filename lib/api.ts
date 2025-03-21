@@ -1,4 +1,4 @@
-import { PAGE_GRAPHQL_FIELDS } from "@/app/utility/contentful-query"
+import { PAGE_GRAPHQL_FIELDS } from '@/app/utility/contentful-query'
 
 async function fetchGraphQL( query: string, preview = false ): Promise<any> {
 	return fetch(

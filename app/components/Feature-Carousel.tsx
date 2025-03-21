@@ -1,11 +1,11 @@
 'use client'
 
-import "react-multi-carousel/lib/styles.css";
+import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { ImageObj } from '../utility/types';
 import Feature from './Feature';
-import ButtonGroup from "./Button-Group";
-import { StarSvg } from "../utility/svgs";
+import ButtonGroup from './Button-Group';
+import { StarSvg } from '@/app/utility/svgs';
 
 interface Collection {
 	featureCardsCollection : {
@@ -20,7 +20,11 @@ interface Collection {
 	subheading : string
 }
 
-export const FeatureCarousel = ( { featureCardsCollection, title, subheading } : Collection ) => {
+export const FeatureCarousel = ( { 
+	featureCardsCollection, 
+	title, 
+	subheading 
+} : Collection ) => {
 
 	const carouselArr = featureCardsCollection?.items;
 
@@ -31,12 +35,12 @@ export const FeatureCarousel = ( { featureCardsCollection, title, subheading } :
 			<p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
 				{ title }
 			</p>
-			<div className="flex items-center space-x-2">
-				<StarSvg className="w-6 h-6" />
+			<div className='flex items-center space-x-2'>
+				<StarSvg className='w-6 h-6' />
 				<h2 className='tertiary-heading-custom'>
 					{ subheading }
 				</h2>
-				<StarSvg className="w-6 h-6" />
+				<StarSvg className='w-6 h-6' />
 			</div>
 			<Carousel 
 				{

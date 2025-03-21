@@ -1,8 +1,6 @@
-import { draftMode } from "next/headers";
-import Header from "./components/Header";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { getPageData } from "@/lib/api";
+import { draftMode } from 'next/headers';
+import './globals.css';
+import { getPageData } from '@/lib/api';
 
 export const metadata = {
   title: `Lester Yiu - Developer`,
@@ -17,10 +15,9 @@ export default async function RootLayout({
 
 	const { isEnabled } = draftMode();
 	const results = await getPageData( isEnabled, '/' );
-	const headerResult = results?.header;
 
 	return (
-		<html lang="en">
+		<html lang='en'>
 			<head>
 				<link 
 					{
@@ -49,7 +46,7 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body>
-				<section className="min-h-screen">
+				<section className='min-h-screen'>
 					<main>
 						{ children }
 					</main>

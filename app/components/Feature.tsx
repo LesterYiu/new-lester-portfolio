@@ -1,4 +1,4 @@
-import { ImageObj } from "../utility/types";
+import { ImageObj } from '@/app/utility/types';
 
 interface FeatureObj {
     title : string;
@@ -7,7 +7,12 @@ interface FeatureObj {
 	labels: [ string ];
 }
 
-export const Feature = ({ title, description, image, labels } : FeatureObj) => {
+export const Feature = ({ 
+	title, 
+	description, 
+	image, 
+	labels 
+} : FeatureObj) => {
 
     return (
 
@@ -18,7 +23,7 @@ export const Feature = ({ title, description, image, labels } : FeatureObj) => {
 				}
 			}
 		>
-			<div className="relative space-y-4 p-6 flex flex-col h-full">
+			<div className='relative space-y-4 p-6 flex flex-col h-full'>
                 { image &&
                     <img 
 						{
@@ -31,7 +36,7 @@ export const Feature = ({ title, description, image, labels } : FeatureObj) => {
 					/>
                 }
 				{ title &&
-                    <h2 className="font-jost text-2xl text-black text-left font-medium whitespace-break-spaces">
+                    <h2 className='font-jost text-2xl text-black text-left font-medium whitespace-break-spaces'>
                         { title }
                     </h2>
 				}
@@ -59,7 +64,7 @@ export const Feature = ({ title, description, image, labels } : FeatureObj) => {
 					</ul>
 				}
 				{ description &&
-                    <p className="font-jost text-md text-left text-black h-full line-clamp-5 md:line-clamp-4">
+                    <p className='font-jost text-md text-left text-black h-full line-clamp-5 md:line-clamp-4'>
                         { description }
                     </p>
 				}

@@ -2,7 +2,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Link, ResultObj } from '@/app/utility/types';
 import { options } from '@/app/utility/contentful-richtext';
 import Image from 'next/image';
-import HeroBackground from "@/public/blob-2.png";
+import HeroBackground from '@/public/blob-2.png';
 import { RenderLinkSvg  } from '../utility/utility-functions';
 import { StarSvg } from '../utility/svgs';
 
@@ -35,12 +35,12 @@ export const Card = ({
                 <p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
                     { heading }
                 </p>
-                <div className="flex items-center space-x-2">
-                    <StarSvg className="w-6 h-6" />
+                <div className='flex items-center space-x-2'>
+                    <StarSvg className='w-6 h-6' />
                     <h2 className='tertiary-heading-custom'>
                         { subheading }
                     </h2>
-                    <StarSvg className="w-6 h-6" />
+                    <StarSvg className='w-6 h-6' />
                 </div>
                 { cardDescription.json &&
                     <div className='space-y-4'>

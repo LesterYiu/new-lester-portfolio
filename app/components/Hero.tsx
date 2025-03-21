@@ -1,8 +1,8 @@
-import Image from "next/image";
-import HeroBackground from "@/public/blob.png";
-import WaveImage from "@/public/wave.png";
-import { MailLogo, DownloadLogo } from "../utility/svgs";
-import { ResultObj } from "../utility/types";
+import Image from 'next/image';
+import HeroBackground from '@/public/blob.png';
+import WaveImage from '@/public/wave.png';
+import { MailLogo, DownloadLogo } from '../utility/svgs';
+import { ResultObj } from '../utility/types';
 
 interface LinkObject {
     title : string,

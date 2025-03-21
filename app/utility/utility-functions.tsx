@@ -1,4 +1,4 @@
-import { DownloadLogo, GithubLogo, LinkedInLogo, MailLogo } from "./svgs"
+import { DownloadLogo, GithubLogo, LinkedInLogo, MailLogo } from '@/app/utility/svgs';
 
 export const RenderLinkSvg = ( type : string, className : string ) => {
 
