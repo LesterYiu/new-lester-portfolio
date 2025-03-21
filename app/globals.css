@@ -68,7 +68,7 @@
 }
 
 .react-multi-carousel-dot button {
-    border: 1px solid black !important;
+    border: 1px solid rgba(0, 0, 0, 0.500) !important;
 }
 
 .react-multi-carousel-dot-list {
@@ -80,6 +80,5 @@
     .react-multi-carousel-dot-list {
         display: flex !important;
     }
-    
 
 }

@@ -60,7 +60,7 @@ const Header = ({
                                     <li key={ key }
                                         {
                                             ...{
-                                                className : 'hidden lg:inline-block'
+                                                className : 'lg:inline-block hidden'
                                             }
                                         }
                                     >
@@ -68,7 +68,7 @@ const Header = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'font-outfit font-medium text-lg'
+                                                    className : 'relative font-outfit font-medium text-lg after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left'
                                                 }
                                             }
                                         >

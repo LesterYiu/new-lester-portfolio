@@ -48,7 +48,7 @@ export const Feature = ({ title, description, image, labels } : FeatureObj) => {
 							<li key={ key }
 								{
 									...{
-										className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap'
+										className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap pointer-events-none select-none'
 									}
 								}
 							>

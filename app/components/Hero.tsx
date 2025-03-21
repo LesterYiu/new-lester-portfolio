@@ -56,7 +56,7 @@ const Hero = ({
                                             <MailLogo 
                                                 {
                                                     ...{
-                                                        className : 'w-5 ml-1'
+                                                        className : 'w-5 ml-2'
                                                     }
                                                 }
                                             />

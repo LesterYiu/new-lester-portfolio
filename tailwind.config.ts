@@ -44,10 +44,19 @@ export default {
 					'to' : {
 						scale : '105% 105%'
 					}
+				},
+				'underline' : {
+					'from' : {
+						width: '0%'
+					},
+					'to' : {
+						width : '100%'
+					}
 				}
 			},
 			animation : {
-				'rotate-gear' : 'rotate-gear 10s linear infinite, button-scale 200ms ease-out forwards'
+				'rotate-gear' : 'rotate-gear 10s linear infinite, button-scale 200ms ease-out forwards',
+				'underline-text' : 'underline 200ms ease-out'
 			}
 		}
 	},
