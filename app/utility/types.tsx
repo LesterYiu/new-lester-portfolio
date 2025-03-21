@@ -19,3 +19,13 @@ export interface ImageObj {
     url : string;
     [ key: string ]: any
 }
+
+export interface FeatureObj {
+	title : string;
+	description : string;
+	image : ImageObj;
+	[ key: string ]: any;
+    labels: [ string ];
+    setIsFeatureOpen? : React.Dispatch<React.SetStateAction<boolean>>;
+	setClickedFeature?: React.Dispatch<React.SetStateAction<FeatureObj | null>>;
+}

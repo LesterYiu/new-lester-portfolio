@@ -90,7 +90,7 @@ const Header = ({
                             </button>
                         </li>
                         <li className='md:hidden'>
-                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center transition-transform duration-200 hover:scale-105'>
+                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center scale-custom'>
                                 <HamburgerSvg 
                                     {
                                         ...{

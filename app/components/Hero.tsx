@@ -47,7 +47,7 @@ const Hero = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'font-jost text-white text-lg px-10 py-2.5 rounded-3xl text-center flex items-center justify-center ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
+                                                    className : 'font-jost text-white text-lg px-10 py-2.5 rounded-3xl text-center flex items-center justify-center scale-custom ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
                                                 }
                                             }
                                         >

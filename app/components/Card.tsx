@@ -57,7 +57,7 @@ export const Card = ({
                                     {
                                         ...{
                                             href : i.link,
-                                            className : 'lg:w-[45px] lg:h-[45px] w-[60px] h-[60px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full',
+                                            className : 'lg:w-[45px] lg:h-[45px] w-[60px] h-[60px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
                                             target : ( i.target == 'Blank' ? '_blank' : '_self'),
                                             rel : 'noopener'
                                         }
