@@ -79,7 +79,7 @@ export const FeatureCarousel = ( {
 							arrows : false,
 							customButtonGroup : <ButtonGroup />,
 							showDots : true,
-							swipeable : false
+							swipeable : true
 						}
 					}
 				>
