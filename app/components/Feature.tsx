@@ -46,8 +46,8 @@ export const Feature = ({
 				{
 					...{
 						className : 'h-[450px] relative sh-[500px] bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
-						onClick : onFeatureClick,
-						onMouseDown : onMouseDownClick
+						onMouseDown : onMouseDownClick,
+						onMouseUp : onFeatureClick
 					}
 				}
 			>
