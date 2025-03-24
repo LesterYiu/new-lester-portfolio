@@ -68,8 +68,17 @@ export const FEATURE_GRAPHQL_FIELDS = `
 	}
 	labels
 	tags
-	previewImage {
+	previewImageDesktop {
 		${ IMAGE_GRAPHQL_FIELDS }
+	}
+	previewImageMobile {
+		${ IMAGE_GRAPHQL_FIELDS }
+	}
+	previewLink {
+		${ LINK_GRAPHQL_FIELDS }
+	}
+	sourceLink {
+		${ LINK_GRAPHQL_FIELDS }
 	}
 `
 

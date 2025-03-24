@@ -76,7 +76,7 @@ export const FeaturePopup = ({
         <div 
             {
                 ...{
-                    className : 'z-[100] fixed top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : '' ),
+                    className : 'z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
                     "aria-hidden" : ( isFeatureOpen ? 'false' : 'true' )
                 }
             }
@@ -84,7 +84,7 @@ export const FeaturePopup = ({
             <div 
                 {
                     ...{
-                        className : 'relative h-full w-full wrapper-custom section-pb md:pt-[78px] pt-[48px] space-y-8 ' + ( isFeatureOpen ? 'overflow-y-auto' : '' )
+                        className : 'relative h-full w-full wrapper-custom section-pb md:pt-[78px] pt-[48px] space-y-8'
                     }
                 }
             >
@@ -118,7 +118,7 @@ export const FeaturePopup = ({
                                         width : 500,
                                         height : 500,
                                         quality : 100,
-                                        className : 'md:hidden inline-block m-auto w-36 h-36 object-contain'
+                                        className : 'md:hidden inline-block m-auto w-36 h-36 object-contain bg-white p-1 rounded-2xl'
                                     }
                                 }
                             />
@@ -145,7 +145,7 @@ export const FeaturePopup = ({
                                         <li key={ key }
                                             {
                                                 ...{
-                                                    className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap interact-none'
+                                                    className : 'font-jost text-lg text-white bg-primary-green rounded-3xl px-4 py-1 whitespace-nowrap interact-none'
                                                 }
                                             }
                                         >
@@ -156,25 +156,76 @@ export const FeaturePopup = ({
                                 </ul>
                             </div>
                         }
+                        { ( currentProject?.previewLink || currentProject?.sourceLink ) &&
+                            <div className='space-x-4'>
+                                <p className='font-jost inline-block text-lg'>
+                                    Explore:
+                                </p>
+                                { currentProject?.previewLink &&
+                                    <a 
+                                        {
+                                            ...{
+                                                href : currentProject?.previewLink?.link,
+                                                target : ( currentProject?.previewLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                rel : 'noopener',
+                                                className : 'font-jost underline !ml-2 text-lg'
+                                            }
+                                        }
+                                    >
+                                        Live Site
+                                    </a>
+                                }
+                                { currentProject?.sourceLink &&
+                                    <a 
+                                        {
+                                            ...{
+                                                href : currentProject?.sourceLink?.link,
+                                                target : ( currentProject?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                rel : 'noopener',
+                                                className : 'font-jost underline text-lg'
+                                            }
+                                        }
+                                    >
+                                        Source Code
+                                    </a>
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
-                <Image 
-                    {
-                        ...{
-                            src : currentProject?.previewImage?.url,
-                            alt : '',
-                            width : 2000,
-                            height : 2000,
-                            quality : 100,
-                            className : 'relative z-[10] mx-auto max-h-[550px] object-contain'
+                { currentProject?.previewImageDesktop?.url &&
+                    <Image 
+                        {
+                            ...{
+                                src : currentProject?.previewImageDesktop?.url,
+                                alt : '',
+                                width : 2000,
+                                height : 2000,
+                                quality : 100,
+                                className : 'md:inline-block hidden relative z-[10] mx-auto max-h-[550px] object-contain'
+                            }
                         }
-                    }
-                />
-                <div className="flex justify-between">
+                    />
+                }
+                { currentProject?.previewImageMobile?.url &&
+                    <Image 
+                        {
+                            ...{
+                                src : currentProject?.previewImageMobile?.url,
+                                alt : '',
+                                width : 2000,
+                                height : 2000,
+                                quality : 100,
+                                className : 'md:hidden inline-block relative z-[10] mx-auto w-full object-contain'
+                            }
+                        }
+                    />
+                }
+                <div className='flex justify-between pb-9'>
                     <button 
                         {
                             ...{
-                                className : 'font-jost flex items-center',
+                                className : 'md:flex-row md:items-center items-start flex-col font-jost flex',
                                 onClick : onPrevProject
                             }
                         }
@@ -193,7 +244,7 @@ export const FeaturePopup = ({
                     <button 
                         {
                             ...{
-                                className : 'font-jost flex items-center',
+                                className : 'md:flex-row md:items-center items-end flex-col-reverse font-jost flex',
                                 onClick : onNextProject
                             }
                         }
