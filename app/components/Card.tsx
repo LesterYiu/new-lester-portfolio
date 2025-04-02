@@ -63,7 +63,7 @@ export const Card = ({
                                         }
                                     }
                                 >
-                                    { RenderLinkSvg( i.svg, 'lg:w-6 w-8 fill-white' )}
+                                    { RenderLinkSvg( i.svg, 'lg:w-6 w-8 standard-svg' )}
                                 </a>
                             );
                         })}

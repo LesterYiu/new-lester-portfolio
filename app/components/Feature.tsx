@@ -80,7 +80,7 @@ export const Feature = ({
 								<li key={ key }
 									{
 										...{
-											className : 'font-jost text-white bg-primary-green rounded-2xl px-4 py-1 whitespace-nowrap'
+											className : 'font-jost text-white bg-primary-green text-md rounded-3xl px-4 py-1 whitespace-nowrap'
 										}
 									}
 								>
@@ -91,12 +91,12 @@ export const Feature = ({
 						</ul>
 					}
 					{ description &&
-						<p className='line-clamp-3 font-jost text-md text-left text-black h-full interact-none'>
+						<p className='line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
 							{ description }
 						</p>
 					}
 					<div className='font-jost flex space-x-1'>
-						<span className='group-hover:underline'>
+						<span className='group-hover:underline text-lg'>
 							Read more
 						</span>
 						<RightChevron className='w-6 transition-all duration-200 group-hover:translate-x-1'/>

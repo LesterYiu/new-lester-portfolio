@@ -1,5 +1,5 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { StarSvg } from "../utility/svgs";
+import { SendSvg, StarSvg } from "../utility/svgs";
 import { ResultObj } from "../utility/types";
 import { options } from '@/app/utility/contentful-richtext';
 
@@ -36,27 +36,39 @@ const Form = ({
                         <label htmlFor='firstName' className='description-custom'>
                             First Name*
                         </label>
-                        <input type='text' name='firstName' id='firstName' required  className='border-2 border-black rounded p-1 font-jost text-lg'/>
+                        <input type='text' name='firstName' id='firstName' required  className='standard-input'/>
                     </div>
                     <div className='md:w-1/2 flex flex-col'>
                         <label htmlFor='lastName' className='description-custom'>
                             Last Name
                         </label>
-                        <input type='text' name='lastName' id='lastName' className='border-2 border-black rounded p-1 font-jost text-lg'/>
+                        <input type='text' name='lastName' id='lastName' className='standard-input'/>
                     </div>
                 </div>
                 <div className='flex flex-col'>
                     <label htmlFor='email' className='description-custom'>
                         Email*
                     </label>
-                    <input type='email' name='email' id='email' required className='border-2 border-black rounded p-1 font-jost text-lg' />
+                    <input type='email' name='email' id='email' required className='standard-input' />
                 </div>
                 <div className='flex flex-col'>
                     <label htmlFor='message' className='description-custom'>
                         Message*
                     </label>
-                    <textarea name='message' id='message' required className='resize-none border-2 border-black rounded p-1 font-jost text-lg'/>
+                    <textarea name='message' id='message' required className='resize-none standard-input h-32'/>
                 </div>
+                <button type="submit" className='text-white standard-button scale-custom flex items-center text-lg'>
+                    <span>
+                        Submit
+                    </span>
+                    <SendSvg 
+                        {
+                            ...{
+                                className : 'w-6 ml-1.5 standard-svg'
+                            }
+                        }
+                    />
+                </button>
             </form>
         </section>
 

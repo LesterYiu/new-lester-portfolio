@@ -225,7 +225,7 @@ export const FeaturePopup = ({
                     <button 
                         {
                             ...{
-                                className : 'md:flex-row md:items-center items-start flex-col font-jost flex',
+                                className : 'md:flex-row md:items-center items-start flex-col font-jost flex text-lg',
                                 onClick : onPrevProject
                             }
                         }
@@ -244,7 +244,7 @@ export const FeaturePopup = ({
                     <button 
                         {
                             ...{
-                                className : 'md:flex-row md:items-center items-end flex-col-reverse font-jost flex',
+                                className : 'md:flex-row md:items-center items-end flex-col-reverse font-jost flex text-lg',
                                 onClick : onNextProject
                             }
                         }

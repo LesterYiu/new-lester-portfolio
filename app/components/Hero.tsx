@@ -47,7 +47,7 @@ const Hero = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'font-jost text-white text-lg px-10 py-2.5 rounded-3xl text-center flex items-center justify-center scale-custom ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
+                                                    className : 'standard-button flex items-center justify-center scale-custom ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
                                                 }
                                             }
                                         >
@@ -56,7 +56,7 @@ const Hero = ({
                                             <MailLogo 
                                                 {
                                                     ...{
-                                                        className : 'w-5 ml-2'
+                                                        className : 'w-6 ml-1.5 standard-svg'
                                                     }
                                                 }
                                             />
@@ -64,7 +64,7 @@ const Hero = ({
                                             <DownloadLogo 
                                                 {
                                                     ...{
-                                                        className : 'w-6 pb-[2px]'
+                                                        className : 'w-6 ml-1 standard-svg'
                                                     }
                                                 }
                                             />

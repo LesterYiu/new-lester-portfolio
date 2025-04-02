@@ -34,6 +34,22 @@
     @apply pointer-events-none select-none;
 }
 
+.standard-button {
+    @apply text-white font-jost text-lg bg-primary-green px-10 py-2.5 rounded-3xl;
+}
+
+.standard-input {
+    @apply border border-black shadow-custom rounded p-1 font-jost text-lg outline-primary-green;
+}
+
+.standard-svg {
+    @apply fill-secondary-green stroke-tertiary-green;
+}
+
+.shadow-custom {
+    box-shadow: 0 4px 9px rgba(0,0,0,.047),0 1.54074px 2.86667px rgba(0,0,0,.073),0 .32593px .73333px rgba(0,0,0,.12);
+}
+
 .headroom {
     position: fixed;
 }

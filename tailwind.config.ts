@@ -18,6 +18,8 @@ export default {
 				green : '#B1D2A4',
 				white : '#F6FDF3',
 				'primary-green' : '#5D8D4B',
+				'secondary-green' : '#F6FDF3',
+				'tertiary-green' : '#303c2c',
 				grey : '#fdfdfd'
 			},
 			keyframes : {

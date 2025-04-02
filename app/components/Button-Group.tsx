@@ -12,7 +12,7 @@ export const ButtonGroup = ({
             <button 
                 {
                     ...{
-                        className : 'rounded-full shadow p-2 border border-grey scale-custom' + ( currentSlide === 0 ? ' disable' : '' ),
+                        className : 'rounded-full shadow p-2 border border-grey scale-custom text-lg' + ( currentSlide === 0 ? ' disable' : '' ),
                         onClick : ( () => previous() )
                     }
                 }
@@ -20,7 +20,7 @@ export const ButtonGroup = ({
                 <LeftChevron 
                     {
                         ...{
-                            className : 'w-10'
+                            className : 'w-10 stroke-tertiary-green'
                         }
                     }
                 />
@@ -36,7 +36,7 @@ export const ButtonGroup = ({
                 <RightChevron 
                     {
                         ...{
-                            className : 'w-10'
+                            className : 'w-10 stroke-tertiary-green'
                         }
                     }
                 />
