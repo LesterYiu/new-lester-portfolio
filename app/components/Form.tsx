@@ -30,7 +30,7 @@ const Form = ({
                     </div>
                 }
             </div>
-            <form action='' className='lg:w-1/2 w-full space-y-4'>
+            <form name="contact" method="POST" data-netlify="true" className='lg:w-1/2 w-full space-y-4'>
                 <div className='md:flex-row flex-col flex gap-x-4'>
                     <div className='md:w-1/2 flex flex-col'>
                         <label htmlFor='firstName' className='description-custom'>
