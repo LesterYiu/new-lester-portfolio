@@ -33,7 +33,7 @@ export const FeatureCarousel = ( {
 
     return (
 
-		<>
+		<section>
 			<div className='md:pb-0 relative max-w-[1024px] mx-auto pl-4 space-y-4 pb-8 mb-[125px]'>
 				<p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
 					{ title }
@@ -114,7 +114,7 @@ export const FeatureCarousel = ( {
 					}
 				}
 			/>
-		</>
+		</section>
 
     )
 

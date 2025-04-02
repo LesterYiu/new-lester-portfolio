@@ -38,7 +38,7 @@ export const Feature = ({
 
     return (
 
-		<>
+		<section>
 			<div
 				{
 					...{
@@ -103,7 +103,7 @@ export const Feature = ({
 					</div>
 				</div>
 			</div>
-		</>
+		</section>
 
     );
 

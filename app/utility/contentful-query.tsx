@@ -93,6 +93,15 @@ export const FEATURE_CAROUSEL_GRAPHQL_FIELDS = `
 	}
 `
 
+export const FORM_GRAPHQL_FIELDS = `
+	type: __typename
+	title
+	subheading
+	formDescription : description {
+		json
+	}
+`
+
 export const PAGE_GRAPHQL_FIELDS = `
 	title
 	slug
@@ -109,6 +118,9 @@ export const PAGE_GRAPHQL_FIELDS = `
 			}
 			... on Carousel {
 				${ FEATURE_CAROUSEL_GRAPHQL_FIELDS }
+			}
+			... on Form {
+				${ FORM_GRAPHQL_FIELDS }
 			}
 		}
 	}

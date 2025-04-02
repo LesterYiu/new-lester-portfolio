@@ -2,6 +2,7 @@ import Card from '@/app/components/Card';
 import FeatureCarousel from '@/app/components/Feature-Carousel';
 import Hero from '@/app/components/Hero';
 import { ResultObj } from '@/app/utility/types';
+import Form from '../components/Form';
 
 const ContentCollection = ({ 
     result, 
@@ -53,6 +54,22 @@ const ContentCollection = ({
             />
 
         );
+
+    }
+
+    if ( type == 'Form' ) {
+
+        return (
+
+            <Form
+                {
+                    ...{
+                        ...result
+                    }
+                }
+            />
+
+        )
 
     }
 

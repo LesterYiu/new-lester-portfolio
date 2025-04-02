@@ -83,14 +83,14 @@
     display: none !important;
 }
 
+body.popup-active {
+    overflow-y: hidden;
+}
+
 @media (max-width: 767px) {
     
     .react-multi-carousel-dot-list {
         display: flex !important;
     }
 
-}
-
-body.popup-active {
-    overflow-y: hidden;
 }
