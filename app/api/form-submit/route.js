@@ -8,22 +8,20 @@ export async function POST ( req ) {
 
     const invalidValuesObj = {};
 
-    function validateForm( emailAddress ) {
+    function validateForm( ) {
 
 
         if ( firstName.length <= 1 ) invalidValuesObj.firstName = true;
 
         if ( emailMessage.length <= 10 ) invalidValuesObj.emailMessage = true;
 
-        if ( ! emailRegex.test( emailAddress ) ) invalidValuesObj.emailAddress = true;
+        if ( ! emailRegex.test( email ) ) invalidValuesObj.emailAddress = true;
 
         return Object.values(invalidValuesObj).some(val => val === true);
 
     }
 
-    if ( ! validateForm( email ) ) {
-        return Response.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
-    } else {
+    if ( validateForm( email ) ) {
         return Response.json({ success: false, message: "Email has not been sent.", invalidValues : invalidValuesObj}, { status: 500 });
     }
 
@@ -42,9 +40,7 @@ export async function POST ( req ) {
                 privateKey : process.env.NEXT_PRIVATE_EMAIL_API_KEY
             }
         )
-        .then( ( res ) => {
-            console.log('test')
-        })
+
         return Response.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
         
     } catch ( error ) {
