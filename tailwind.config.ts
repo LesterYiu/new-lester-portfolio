@@ -21,7 +21,8 @@ export default {
 				'primary-green' : '#5D8D4B',
 				'secondary-green' : '#F6FDF3',
 				'tertiary-green' : '#303c2c',
-				grey : '#fdfdfd'
+				grey : '#fdfdfd',
+				'secondary-grey' : '#e5e7eb'
 			},
 			keyframes : {
 				'rotate-gear' : {

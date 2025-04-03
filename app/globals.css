@@ -39,7 +39,7 @@
 }
 
 .standard-input {
-    @apply border border-black shadow-custom rounded p-1 font-jost text-lg outline-primary-green;
+    @apply bg-white border border-black shadow-custom rounded p-1 font-jost text-lg outline-primary-green;
 }
 
 .standard-svg {

@@ -22,7 +22,10 @@ export async function POST ( req ) {
     }
 
     if ( validateForm( email ) ) {
-        return Response.json({ success: false, message: "Email has not been sent.", invalidValues : invalidValuesObj}, { status: 500 });
+        return Response.json({ 
+            success: false, message: "Email has not been sent.", 
+            invalidValues : invalidValuesObj
+        }, { status: 500 });
     }
 
     try {
