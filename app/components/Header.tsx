@@ -79,7 +79,7 @@ const Header = ({
                             })
                         }
                         <li>
-                            <button className='bg-secondary-green p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
+                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
                                 <GearLogo 
                                     {
                                         ...{

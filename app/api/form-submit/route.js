@@ -27,27 +27,27 @@ export async function POST ( req ) {
         return Response.json({ success: false, message: "Email has not been sent.", invalidValues : invalidValuesObj}, { status: 500 });
     }
 
-    // try {
-    //     emailjs.send( 
-    //         process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
-    //         process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
-    //         { 
-    //             firstName,
-    //             lastName,
-    //             email,
-    //             emailMessage
-    //         }, 
-    //         {
-    //             publicKey : process.env.NEXT_PUBLIC_EMAIL_API_KEY,
-    //             privateKey : process.env.NEXT_PRIVATE_EMAIL_API_KEY
-    //         }
-    //     )
-    //     .then( ( res ) => {
-    //         console.log('test')
-    //     })
-    //     return Response.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
+    try {
+        emailjs.send( 
+            process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
+            process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
+            { 
+                firstName,
+                lastName,
+                email,
+                emailMessage
+            }, 
+            {
+                publicKey : process.env.NEXT_PUBLIC_EMAIL_API_KEY,
+                privateKey : process.env.NEXT_PRIVATE_EMAIL_API_KEY
+            }
+        )
+        .then( ( res ) => {
+            console.log('test')
+        })
+        return Response.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
         
-    // } catch ( error ) {
-    //     console.log( error)
-    // }
+    } catch ( error ) {
+        console.log( error)
+    }
 }

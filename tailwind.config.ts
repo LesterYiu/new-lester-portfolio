@@ -16,7 +16,8 @@ export default {
 			},
 			colors : {
 				green : '#B1D2A4',
-				white : '#F6FDF3',
+				white : '#FFFFFF',
+				red : '#FF2424',
 				'primary-green' : '#5D8D4B',
 				'secondary-green' : '#F6FDF3',
 				'tertiary-green' : '#303c2c',
