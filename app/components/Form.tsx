@@ -14,6 +14,7 @@ interface invalidObj {
 
 const Form = ({
     title,
+    sectionId,
     subheading,
     formDescription
 }: ResultObj) => {
@@ -84,7 +85,14 @@ const Form = ({
 
     return (
 
-        <section className='lg:flex-row lg:space-x-8 lg:space-y-0 relative space-y-8 wrapper-custom flex flex-col items-center mb-[125px]'>
+        <section 
+            {
+                ...{
+                    className : 'lg:flex-row lg:space-x-8 lg:space-y-0 relative space-y-8 wrapper-custom flex flex-col items-center mb-[125px]',
+                    id : ( sectionId || undefined )
+                }
+            }
+        >
             <div className='lg:w-1/2 w-full space-y-4'>
                 <p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
                     { title }

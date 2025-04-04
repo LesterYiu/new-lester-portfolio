@@ -109,6 +109,41 @@ export const FeaturePopup = ({
                                 { currentProject?.title }
                             </h3>
                         }
+                        { ( currentProject?.previewLink || currentProject?.sourceLink ) &&
+                            <div className='space-x-4'>
+                                <p className='font-jost inline-block text-lg'>
+                                    Explore:
+                                </p>
+                                { currentProject?.previewLink &&
+                                    <a 
+                                        {
+                                            ...{
+                                                href : currentProject?.previewLink?.link,
+                                                target : ( currentProject?.previewLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                rel : 'noopener',
+                                                className : 'font-jost underline !ml-2 text-lg'
+                                            }
+                                        }
+                                    >
+                                        Live Site
+                                    </a>
+                                }
+                                { currentProject?.sourceLink &&
+                                    <a 
+                                        {
+                                            ...{
+                                                href : currentProject?.sourceLink?.link,
+                                                target : ( currentProject?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                rel : 'noopener',
+                                                className : 'font-jost underline text-lg'
+                                            }
+                                        }
+                                    >
+                                        Source Code
+                                    </a>
+                                }
+                            </div>
+                        }
                         { currentProject?.image &&
                             <Image
                                 {
@@ -154,41 +189,6 @@ export const FeaturePopup = ({
                                     )
                                     })}
                                 </ul>
-                            </div>
-                        }
-                        { ( currentProject?.previewLink || currentProject?.sourceLink ) &&
-                            <div className='space-x-4'>
-                                <p className='font-jost inline-block text-lg'>
-                                    Explore:
-                                </p>
-                                { currentProject?.previewLink &&
-                                    <a 
-                                        {
-                                            ...{
-                                                href : currentProject?.previewLink?.link,
-                                                target : ( currentProject?.previewLink?.target == 'Blank' ? '_blank' : '_self'),
-                                                rel : 'noopener',
-                                                className : 'font-jost underline !ml-2 text-lg'
-                                            }
-                                        }
-                                    >
-                                        Live Site
-                                    </a>
-                                }
-                                { currentProject?.sourceLink &&
-                                    <a 
-                                        {
-                                            ...{
-                                                href : currentProject?.sourceLink?.link,
-                                                target : ( currentProject?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
-                                                rel : 'noopener',
-                                                className : 'font-jost underline text-lg'
-                                            }
-                                        }
-                                    >
-                                        Source Code
-                                    </a>
-                                }
                             </div>
                         }
                     </div>

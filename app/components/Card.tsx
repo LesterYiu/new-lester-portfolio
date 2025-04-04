@@ -8,6 +8,7 @@ import { StarSvg } from '../utility/svgs';
 
 export const Card = ({ 
     cardDescription, 
+    sectionId,
     heading, 
     subheading, 
     alignment, 
@@ -21,7 +22,8 @@ export const Card = ({
         <section 
             {
                 ...{
-                    className : 'wrapper-custom section-pb flex flex-col-reverse ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse')
+                    className : 'wrapper-custom section-pb flex flex-col-reverse ' + ( alignment ? 'lg:flex-row' : 'lg:flex-row-reverse'),
+                    id : ( sectionId || undefined )
                 }
             }
         >

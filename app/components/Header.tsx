@@ -1,10 +1,11 @@
 'use client'
 
 import Headroom from 'headroom.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Logo from '@/public/logo-header.png';
-import { GearLogo, HamburgerSvg } from '@/app/utility/svgs';
+import { ExitSvg, GearLogo, HamburgerSvg } from '@/app/utility/svgs';
 import { Link } from '../utility/types';
+import { RenderLinkSvg } from '../utility/utility-functions';
 
 interface HeaderProps {
     title : string;
@@ -16,6 +17,8 @@ interface HeaderProps {
 const Header = ({
     navigationCollection
 } : HeaderProps ) => {
+
+    const [ isMenuOpen, setIsMenuOpen ] = useState( false );
 
     const headerRef = useRef<HTMLElement | null>( null );
     
@@ -30,45 +33,123 @@ const Header = ({
 
         headroom.init();
 
-    }, [])
+        if ( isMenuOpen ) {
 
-    return( 
-        <header
-            {
-                ...{
-                    ref : headerRef,
-                    className : 'z-[100] w-full ease-in-out duration-500 headroom'
-                }
-            }
-        >
-            <div className='wrapper-custom h-[100px] w-full flex items-center justify-between'>
-                <img 
-                    {
-                        ...{
-                            src : Logo?.src,
-                            alt : '',
-                            className : 'w-20 h-auto'
-                        }
+            document.querySelector('body')?.classList.add( 'popup-active' )
+
+        } else {
+
+            document.querySelector('body')?.classList.remove( 'popup-active' )
+
+        }
+
+    }, [ isMenuOpen ])
+
+    return(
+        <>
+            <header
+                {
+                    ...{
+                        ref : headerRef,
+                        className : 'z-[100] w-full ease-in-out duration-500 headroom'
                     }
-                />
-                <div>
-                    <ul className='flex items-center space-x-4 md:space-x-10'>
+                }
+            >
+                <div className='wrapper-custom h-[100px] w-full flex items-center justify-between'>
+                    <img 
+                        {
+                            ...{
+                                src : Logo?.src,
+                                alt : '',
+                                className : 'w-20 h-auto'
+                            }
+                        }
+                    />
+                    <nav>
+                        <ul className='flex items-center space-x-4 lg:space-x-10'>
+                            { items &&
+                                items.map( ( i, key ) => {
+
+                                    return (
+                                        <li key={ key }
+                                            {
+                                                ...{
+                                                    className : 'lg:inline-block hidden'
+                                                }
+                                            }
+                                        >
+                                            <a
+                                                {
+                                                    ...{
+                                                        href : i.link,
+                                                        className : 'relative font-outfit font-medium text-lg after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left'
+                                                    }
+                                                }
+                                            >
+                                                { i.title }
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                            <li>
+                                <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
+                                    <GearLogo 
+                                        {
+                                            ...{
+                                                className : 'h-8 standard-svg'
+                                            }
+                                        }
+                                    />
+                                </button>
+                            </li>
+                            <li className='lg:hidden'>
+                                <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center scale-custom'>
+                                    <HamburgerSvg 
+                                        {
+                                            ...{
+                                                className : 'h-8 stroke-tertiary-green',
+                                                onClick : () => { setIsMenuOpen ( true )}
+                                            }
+                                        }
+                                    />
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div className='custom-header-border'/>
+            </header>        
+            <nav 
+                {
+                    ...{
+                        className : 'md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
+                    }
+                }
+            >
+                <div className='h-full flex flex-col items-center justify-center'>
+                    <ul className='flex flex-col items-center space-y-8'>
+                        <li>
+                            <img 
+                                {
+                                    ...{
+                                        src : Logo?.src,
+                                        alt : '',
+                                        className : 'w-20 h-auto'
+                                    }
+                                }
+                            />
+                        </li>
                         { items &&
                             items.map( ( i, key ) => {
 
                                 return (
-                                    <li key={ key }
-                                        {
-                                            ...{
-                                                className : 'lg:inline-block hidden'
-                                            }
-                                        }
-                                    >
+                                    <li key={ key }>
                                         <a
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'relative font-outfit font-medium text-lg after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left'
+                                                    className : 'relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left'
                                                 }
                                             }
                                         >
@@ -78,33 +159,79 @@ const Header = ({
                                 )
                             })
                         }
+                    </ul>
+                    <ul className='flex mt-8 space-x-4'>
                         <li>
-                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
-                                <GearLogo 
-                                    {
-                                        ...{
-                                            className : 'h-8 standard-svg'
-                                        }
+                            <a
+                                {
+                                    ...{
+                                        href : 'https://www.linkedin.com/in/lester-yiu/',
+                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        target : '_blank',
+                                        rel : 'noopener'
                                     }
-                                />
-                            </button>
+                                }
+                            >
+                                { RenderLinkSvg( 'Linkedin', 'w-8 standard-svg' )}
+                            </a>
                         </li>
-                        <li className='md:hidden'>
-                            <button className='bg-white p-1 rounded-full shadow border h-10 w-10 flex justify-center items-center scale-custom'>
-                                <HamburgerSvg 
-                                    {
-                                        ...{
-                                            className : 'h-8 stroke-tertiary-green'
-                                        }
+                        <li>
+                            <a
+                                {
+                                    ...{
+                                        href : 'https://github.com/LesterYiu',
+                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        target : '_blank',
+                                        rel : 'noopener'
                                     }
-                                />
-                            </button>
+                                }
+                            >
+                                { RenderLinkSvg( 'GitHub', 'w-8 standard-svg' )}
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                {
+                                    ...{
+                                        href : 'mailto:lester.ws.yiu@gmail.com',
+                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        target : '_blank',
+                                        rel : 'noopener'
+                                    }
+                                }
+                            >
+                                { RenderLinkSvg( 'Mail', 'w-8 standard-svg' )}
+                            </a>
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div className='custom-header-border'/>
-        </header>
+                <button 
+                    {
+                        ...{
+                            className : 'absolute right-4 bg-white shadow border rounded-full top-8 right-4 scale-custom !m-0',
+                            onClick : () => { setIsMenuOpen ( false )}
+                        }
+                    }
+                >
+                    <ExitSvg 
+                        {
+                            ...{
+                                className : 'h-10 w-10'
+                            }
+                        }
+                    />
+                </button>
+            </nav>
+            <div 
+                {
+                    ...{
+                        className : 'fixed z-[100] top-0 bottom-0 left-0 right-0 bg-black transition-opacity duration-300 ' + ( isMenuOpen ? 'opacity-[0.5]' : 'opacity-0 interact-none' ),
+                        onClick : () => { setIsMenuOpen ( false )}
+                    }
+                }
+            />
+        </>
+
     )
 }
 

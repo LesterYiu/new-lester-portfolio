@@ -44,6 +44,7 @@ export const HERO_GRAPHQL_FIELDS = `
 export const CARD_GRAPHQL_FIELDS = `
 	type: __typename
 	title
+	sectionId
 	heading
 	subheading
 	cardDescription : description {
@@ -85,6 +86,7 @@ export const FEATURE_GRAPHQL_FIELDS = `
 export const FEATURE_CAROUSEL_GRAPHQL_FIELDS = `
 	type: __typename
 	title
+	sectionId
 	subheading
 	featureCardsCollection ( limit : 10 ) {
 		items {
@@ -96,6 +98,7 @@ export const FEATURE_CAROUSEL_GRAPHQL_FIELDS = `
 export const FORM_GRAPHQL_FIELDS = `
 	type: __typename
 	title
+	sectionId
 	subheading
 	formDescription : description {
 		json

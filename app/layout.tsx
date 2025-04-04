@@ -12,7 +12,7 @@ export default async function RootLayout({
 }) {
 
 	return (
-		<html lang='en'>
+		<html lang='en' className='scroll-smooth'>
 			<head>
 				<link 
 					{
@@ -41,11 +41,9 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body>
-				<section className='min-h-screen'>
-					<main>
-						{ children }
-					</main>
-				</section>
+				<main>
+					{ children }
+				</main>
 			</body>
 		</html>
 	);
