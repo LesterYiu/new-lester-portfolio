@@ -106,6 +106,13 @@
 body.popup-active,
 html.popup-active {
     overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html.popup-active::-webkit-scrollbar,
+body.popup-active::-webkit-scrollbar {
+    display: none;
 }
 
 @media (max-width: 767px) {
