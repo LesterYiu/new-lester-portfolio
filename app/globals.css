@@ -46,6 +46,10 @@
     @apply fill-secondary-green stroke-tertiary-green;
 }
 
+.underline-hover {
+    @apply relative after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left
+}
+
 .shadow-custom {
     box-shadow: 0 4px 9px rgba(0,0,0,.047),0 1.54074px 2.86667px rgba(0,0,0,.073),0 .32593px .73333px rgba(0,0,0,.12);
 }
