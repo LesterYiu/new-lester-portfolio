@@ -1,4 +1,4 @@
-import { MoonSvg, SunSvg } from "../utility/svgs";
+import { MoonSvg, Redo, SunSvg } from "../utility/svgs";
 
 export const Settings = ({
     setIsSettingsOpen,
@@ -9,7 +9,7 @@ export const Settings = ({
         <div 
             {
                 ...{
-                    className : 'lg:w-[60%] md:px-8 w-[calc(100%-32px)] px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1' : 'opacity-0 interact-none')
+                    className : 'lg:w-[60%] md:px-8 w-[calc(100%-32px)] settings-pop-up overflow-y-auto px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1 overflow-y-auto' : 'opacity-0 interact-none')
                 }
             }
         >
@@ -46,24 +46,31 @@ export const Settings = ({
                         <div className='bg-white top-1/2 -translate-y-1/2 left-0.5 h-5 w-5 absolute rounded-full' />
                     </div>
                 </div>
-                <div className='md:flex-row flex-col-reverse flex justify-between'>
-                    <button className='md:pt-0 pt-4 text-left font-jost text-base text-black font-medium'>
-                        <div className='inline-block underline-hover'>
+                <div className='md:flex-row flex-col flex justify-between'>
+                    <button className='md:p-0 pb-2 text-left font-jost text-base text-black font-medium flex items-center space-x-2'>
+                        <div className='inline-block'>
                             Reset to Default
                         </div>
+                        <Redo 
+                            {
+                                ...{
+                                    className : 'w-4 h-4'
+                                }
+                            }
+                        />
                     </button>
-                    <div className='space-x-2'>
+                    <div className='sm:space-y-0 sm:space-x-2 sm:flex-row space-y-2 flex-col flex'>
                         <button 
                             {
                                 ...{
-                                    className : 'font-jost text-base text-black text-left  border-[#D3D3D3] border px-6 py-2 rounded-3xl font-medium scale-custom',
+                                    className : 'sm:text-left font-jost text-base text-black text-center  border-[#D3D3D3] border px-6 py-2 rounded-3xl font-medium scale-custom',
                                     onClick : () => setIsSettingsOpen( false )
                                 }
                             }
                         >
                             Cancel
                         </button>
-                        <button className='font-jost text-base text-left border-[#D3D3D3] border px-6 py-2 rounded-3xl bg-primary-green text-white font-medium scale-custom'>
+                        <button className='sm:text-left text-center font-jost text-base border-[#D3D3D3] border px-6 py-2 rounded-3xl bg-primary-green text-white font-medium scale-custom'>
                             Save changes
                         </button>
                     </div>

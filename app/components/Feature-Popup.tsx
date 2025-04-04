@@ -28,10 +28,12 @@ export const FeaturePopup = ({
         if ( isFeatureOpen ) {
 
             document.querySelector('body')?.classList.add( 'popup-active' )
+            document.querySelector('html')?.classList.add( 'popup-active' )
 
         } else {
 
             document.querySelector('body')?.classList.remove( 'popup-active' )
+            document.querySelector('html')?.classList.remove( 'popup-active' )
 
         }
 

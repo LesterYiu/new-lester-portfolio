@@ -103,7 +103,8 @@
     display: none !important;
 }
 
-body.popup-active {
+body.popup-active,
+html.popup-active {
     overflow-y: hidden;
 }
 
@@ -113,4 +114,10 @@ body.popup-active {
         display: flex !important;
     }
 
+}
+
+@media ( max-height: 450px ) {
+    .settings-pop-up {
+        height: 90%;
+    }
 }
