@@ -205,7 +205,7 @@ const Form = ({
                     </div>
                     <button 
                         type='submit'
-                        className='text-white standard-button scale-custom flex items-center text-lg'
+                        className='md:w-auto w-full text-white standard-button scale-custom flex items-center justify-center text-lg'
                     >
                         <span>
                             Submit
