@@ -155,7 +155,8 @@ const Header = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left'
+                                                    className : 'relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left',
+                                                    onClick : () => setIsMenuOpen( false )
                                                 }
                                             }
                                         >
