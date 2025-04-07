@@ -6,8 +6,9 @@ import Logo from '@/public/logo-header.png';
 import DarkLogo from '@/public/logo-white.png';
 import { ExitSvg, GearLogo, HamburgerSvg } from '@/app/utility/svgs';
 import { Link } from '../utility/types';
-import { RenderLinkSvg } from '../utility/utility-functions';
+import { RenderLinkSvg, focusTrap } from '../utility/utility-functions';
 import Settings from './Settings-Popup';
+import "wicg-inert";
 
 interface HeaderProps {
     title : string;
@@ -48,6 +49,12 @@ const Header = ({
             document.querySelector('html')?.classList.remove( 'popup-active' )
 
         }
+
+        const hamburgerMenuEl = document.getElementById( 'hamburgerMenu' );
+
+        isMenuOpen ? hamburgerMenuEl?.removeAttribute( 'inert' ) : hamburgerMenuEl?.setAttribute( 'inert', '' );
+
+        isMenuOpen ? focusTrap( 'hamburgerMenu' ) : null;
 
     }, [ isMenuOpen, isSettingsOpen ])
 
@@ -109,24 +116,37 @@ const Header = ({
                                 })
                             }
                             <li>
-                                <button className='reduce-motion:hover:animate-none hover:animate-rotate-gear bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center'>
+                                <button 
+                                    {
+                                        ...{
+                                            className : 'reduce-motion:hover:animate-none hover:animate-rotate-gear bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center',
+                                            'aria-label' : 'Open accessibility menu',
+                                            onClick : () => setIsSettingsOpen( true )
+                                        }
+                                    }
+                                >
                                     <GearLogo 
                                         {
                                             ...{
-                                                className : 'h-8 standard-svg',
-                                                onClick : () => setIsSettingsOpen( true )
+                                                className : 'h-8 standard-svg'
                                             }
                                         }
                                     />
                                 </button>
                             </li>
                             <li className='lg:hidden'>
-                                <button className='bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center scale-custom'>
+                                <button
+                                    {
+                                        ...{
+                                            className : 'bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center scale-custom',
+                                            onClick : () => { setIsMenuOpen ( true )}
+                                        }
+                                    }
+                                >
                                     <HamburgerSvg 
                                         {
                                             ...{
-                                                className : 'h-8 stroke-tertiary-green',
-                                                onClick : () => { setIsMenuOpen ( true )}
+                                                className : 'h-8 stroke-tertiary-green'
                                             }
                                         }
                                     />
@@ -137,10 +157,11 @@ const Header = ({
                 </div>
                 <div className='custom-header-border'/>
             </header>        
-            <nav 
+            <nav suppressHydrationWarning
                 {
                     ...{
-                        className : 'reduce-motion:transition-none dark:bg-tertiary-green md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
+                        className : 'reduce-motion:transition-none dark:bg-tertiary-green md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' ),
+                        id : 'hamburgerMenu'
                     }
                 }
             >
@@ -243,7 +264,8 @@ const Header = ({
                     <ExitSvg 
                         {
                             ...{
-                                className : 'h-10 w-10'
+                                className : 'h-10 w-10',
+                                'aria-label' : 'Close pop up modal',
                             }
                         }
                     />
@@ -252,7 +274,7 @@ const Header = ({
             <div 
                 {
                     ...{
-                        className : 'reduce-motion:transition-none fixed z-[100] top-0 bottom-0 left-0 right-0 bg-black transition-opacity duration-300 ' + ( isMenuOpen || isSettingsOpen ? 'opacity-[0.5]' : 'opacity-0 interact-none' ),
+                        className : 'reduce-motion:transition-none fixed z-[100] top-0 bottom-0 left-0 right-0 bg-black transition-opacity duration-300 ' + ( isMenuOpen || isSettingsOpen ? 'dark:opacity-[0.8] opacity-[0.5]' : 'opacity-0 interact-none' ),
                         onClick : () => { 
                             setIsMenuOpen ( false )
                             setIsSettingsOpen( false )

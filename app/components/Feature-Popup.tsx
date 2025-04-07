@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ExitSvg, LeftChevron, RightChevron } from "../utility/svgs";
 import { useEffect, useState } from "react";
 import { FeatureObj } from "../utility/types";
+import "wicg-inert";
+import { focusTrap } from "../utility/utility-functions";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,6 +38,12 @@ export const FeaturePopup = ({
             document.querySelector('html')?.classList.remove( 'popup-active' )
 
         }
+        
+        const featurePopUpEl = document.getElementById( 'featurePopUp' );
+
+        isFeatureOpen ? featurePopUpEl?.removeAttribute( 'inert' ) : featurePopUpEl?.setAttribute( 'inert', '' );
+
+        isFeatureOpen ? focusTrap( 'featurePopUp' ) : null;
 
     }, [ isFeatureOpen, featureNum ])
 
@@ -75,11 +83,11 @@ export const FeaturePopup = ({
 
     return (
 
-        <div 
+        <div suppressHydrationWarning
             {
                 ...{
                     className : 'reduce-motion:transition-none dark:bg-gradient-to-b dark:from-tertiary-green dark:to-tertiary-green z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
-                    "aria-hidden" : ( isFeatureOpen ? 'false' : 'true' )
+                    id : 'featurePopUp'
                 }
             }
         >
@@ -274,7 +282,8 @@ export const FeaturePopup = ({
                     <ExitSvg 
                         {
                             ...{
-                                className : 'h-10 w-10'
+                                className : 'h-10 w-10',
+                                'aria-label' : 'Close pop up modal',
                             }
                         }
                     />

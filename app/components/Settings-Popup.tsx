@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { MoonSvg, Redo, SunSvg } from "../utility/svgs";
+import "wicg-inert";
+import { focusTrap } from "../utility/utility-functions";
 
 interface SettingsProps {
     setIsSettingsOpen : React.Dispatch<React.SetStateAction<boolean>>;
@@ -41,9 +43,15 @@ export const Settings = ({
 
             htmlEl?.setAttribute( 'data-motion', 'reduced' );
 
-        }
+        };
 
-    }, []);
+        const settingsPopUpEl = document.getElementById( 'settingsPopUp' );
+
+        isSettingsOpen ? settingsPopUpEl?.removeAttribute( 'inert' ) : settingsPopUpEl?.setAttribute( 'inert', '' );
+
+        isSettingsOpen ? focusTrap( 'settingsPopUp' ) : null;
+
+    }, [ isSettingsOpen ]);
 
     const handleSaveChanges = () => {
 
@@ -65,6 +73,8 @@ export const Settings = ({
 
         document.querySelector( 'html' )?.setAttribute( 'data-theme', 'light' );
 
+        document.querySelector( 'html' )?.setAttribute( 'data-motion', 'normal' );
+
         setTheme( 'light' );
 
         setMotionMode( 'normal' );
@@ -76,10 +86,11 @@ export const Settings = ({
     }
 
     return (
-        <div 
+        <div suppressHydrationWarning
             {
                 ...{
-                    className : 'reduce-motion:transition-none dark-bg lg:w-[60%] md:px-8 w-[calc(100%-32px)] settings-pop-up overflow-y-auto px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1 overflow-y-auto' : 'opacity-0 interact-none')
+                    className : 'reduce-motion:transition-none dark-bg lg:w-[60%] md:px-8 w-[calc(100%-32px)] settings-pop-up overflow-y-auto px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1 overflow-y-auto' : 'opacity-0 interact-none'),
+                    id : 'settingsPopUp'
                 }
             }
         >
@@ -103,7 +114,9 @@ export const Settings = ({
                         {
                             ...{
                                 className : 'dark:border-white dark:border relative flex justify-between items-center px-0.5 h-7 rounded-3xl mt-2 gap-x-2 ' + ( theme === 'dark' ? 'bg-dark-primary' : 'dark:bg-transparent bg-primary-green' ),
-                                onClick : () => setTheme( theme === 'light' ? 'dark' : 'light'  )
+                                onClick : () => setTheme( theme === 'light' ? 'dark' : 'light'  ),
+                                'aria-pressed' : ( theme === 'light' ? 'false' : 'true' ),
+                                'aria-label' : ( theme === 'light' ? 'Toggle on dark mode' : 'Toggle on light mode' )
                             }
                         }
                     >
@@ -140,8 +153,10 @@ export const Settings = ({
                     <button 
                         {
                             ...{
-                                className : 'relative relative mt-2 w-12',
-                                onClick : () => setMotionMode( motionMode === 'reduced' ? 'normal' : 'reduced' )
+                                className : 'relative mt-2 w-12',
+                                onClick : () => setMotionMode( motionMode === 'reduced' ? 'normal' : 'reduced' ),
+                                'aria-pressed' : ( motionMode === 'reduced' ? 'true' : 'false' ),
+                                'aria-label' : ( motionMode === 'reduced' ? 'Toggle off reduced motion mode' : 'Toggle on reduced motion mode' )
                             }
                         }
                     >
@@ -166,7 +181,8 @@ export const Settings = ({
                         {
                             ...{
                                 className : 'md:p-0 pb-2 group text-left font-jost text-base text-black font-medium flex items-center space-x-2',
-                                onClick : resetSettings
+                                onClick : resetSettings,
+                                "aria-label" : 'Reset appearance settings'
                             }
                         }
                     >
@@ -186,7 +202,8 @@ export const Settings = ({
                             {
                                 ...{
                                     className : 'dark:bg-white sm:text-left font-jost text-base text-black text-center  border-[#D3D3D3] border px-6 py-2 rounded-3xl font-medium scale-custom',
-                                    onClick : () => setIsSettingsOpen( false )
+                                    onClick : () => setIsSettingsOpen( false ),
+                                    "aria-label" : 'Close appearance menu'
                                 }
                             }
                         >
@@ -196,7 +213,8 @@ export const Settings = ({
                             {
                                 ...{
                                     className : 'dark:border-none dark:bg-primary-green sm:text-left text-center font-jost text-base border-[#D3D3D3] border px-6 py-2 rounded-3xl bg-primary-green text-white font-medium scale-custom',
-                                    onClick : handleSaveChanges
+                                    onClick : handleSaveChanges,
+                                    'aria-label' : 'Save appearance settings'
                                 }
                             }
                         >

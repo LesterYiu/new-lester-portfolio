@@ -135,8 +135,7 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isFirstNameInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
-                                            'aria-hidden' : ( isInvalidObj?.isFirstNameInvalid ? false : true )
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isFirstNameInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' )
                                         }
                                     }
                                 >
@@ -175,8 +174,7 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isEmailInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
-                                            'aria-hidden' : ( isInvalidObj?.isEmailInvalid ? false : true )
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isEmailInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' )
                                         }
                                     }
                                 >
@@ -196,17 +194,21 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isMessageInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
-                                            'aria-hidden' : ( isInvalidObj?.isMessageInvalid ? false : true )
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isMessageInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' )
                                         }
                                     }
                                 >
                                 Enter a message longer than 10 characters
                             </p>
                         </div>
-                        <button 
-                            type='submit'
-                            className='md:w-auto w-full text-white standard-button scale-custom flex items-center justify-center text-lg'
+                        <button
+                            {
+                                ...{
+                                    type : 'submit',
+                                    className : 'md:w-auto w-full text-white standard-button scale-custom flex items-center justify-center text-lg',
+                                    'aria-label' : 'Submit contact form'
+                                }
+                            }
                         >
                             <span>
                                 Submit

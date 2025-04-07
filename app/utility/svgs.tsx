@@ -13,6 +13,7 @@ export const GearLogo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -37,6 +38,7 @@ export const DownloadLogo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -62,6 +64,7 @@ export const MailLogo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -87,6 +90,7 @@ export const GithubLogo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -113,6 +117,7 @@ export const LinkedInLogo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -138,6 +143,7 @@ export const LeftChevron = ( props : PropsObj ) => {
                     viewBox : '0 0 24 24',
                     strokeWidth : '1.5',
                     stroke : 'currentColor',
+                    role : 'img',
                     ...props
                 }
             }
@@ -161,6 +167,7 @@ export const RightChevron = ( props : PropsObj ) => {
                         viewBox : '0 0 24 24',
                         strokeWidth : '1.5',
                         stroke : 'currentColor',
+                        role : 'img',
                         ...props
                     }
                 }
@@ -182,6 +189,7 @@ export const StarSvg = ( props : PropsObj ) => {
                     viewBox : '0 0 33 33',
                     fill : 'none',
                     xmlns : 'http://www.w3.org/2000/svg',
+                    role : 'img',
                     ...props
                 }
             }
@@ -207,6 +215,7 @@ export const HamburgerSvg = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -231,6 +240,7 @@ export const ExitSvg = ( props : PropsObj ) => {
                     viewBox : '0 0 24 24',
                     strokeWidth : '1.5',
                     stroke : 'currentColor',
+                    role : 'img',
                     ...props
                 }
             }
@@ -255,7 +265,8 @@ export const SendSvg = ( props : PropsObj ) => {
                     stroke : 'currentColor',
                     strokeWidth : '2',
                     strokeLinecap : 'round',
-                    strokeLinejoin : 'round', 
+                    strokeLinejoin : 'round',
+                    role : 'img', 
                     ...props
                 }
             }
@@ -281,6 +292,7 @@ export const CheckSvg = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -307,6 +319,7 @@ export const AccessibilitySvg = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -333,6 +346,7 @@ export const SunSvg = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap :'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -365,6 +379,7 @@ export const MoonSvg = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props
                 }
             }
@@ -392,6 +407,7 @@ export const Redo = ( props : PropsObj ) => {
                     strokeWidth : '2',
                     strokeLinecap : 'round',
                     strokeLinejoin : 'round',
+                    role : 'img',
                     ...props 
                 }
             }

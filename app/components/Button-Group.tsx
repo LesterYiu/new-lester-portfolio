@@ -13,7 +13,8 @@ export const ButtonGroup = ({
                 {
                     ...{
                         className : 'dark:bg-white dark:border-none rounded-full shadow p-2 border border-grey scale-custom text-lg' + ( currentSlide === 0 ? ' disable' : '' ),
-                        onClick : ( () => previous() )
+                        onClick : ( () => previous() ),
+                        'aria-label' : 'Go to the previous slide'
                     }
                 }
             >
@@ -29,7 +30,8 @@ export const ButtonGroup = ({
                 {
                     ...{
                         onClick : ( () => next() ),
-                        className : 'dark:bg-white dark:border-none rounded-full shadow p-2 border border-grey scale-custom'
+                        className : 'dark:bg-white dark:border-none rounded-full shadow p-2 border border-grey scale-custom',
+                        'aria-label' : 'Go to the next slide'
                     }
                 }
             >

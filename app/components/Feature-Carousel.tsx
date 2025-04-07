@@ -1,5 +1,6 @@
 'use client'
 
+import "wicg-inert";
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import { FeatureObj } from '../utility/types';
@@ -99,6 +100,7 @@ export const FeatureCarousel = ( {
 								{
 									...{
 										setIsFeatureOpen,
+										isFeatureOpen,
 										setFeatureNum,
 										arrayKey : key,
 										title : i?.title,

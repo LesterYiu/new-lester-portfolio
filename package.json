@@ -31,6 +31,7 @@
     "@netlify/plugin-nextjs": "^5.10.2",
     "@types/headroom.js": "^0.12.4",
     "contentful": "^11.5.8",
-    "react-multi-carousel": "^2.8.5"
+    "react-multi-carousel": "^2.8.5",
+    "wicg-inert": "^3.1.3"
   }
 }
