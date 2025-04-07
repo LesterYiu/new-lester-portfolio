@@ -27,7 +27,7 @@
 }
 
 .scale-custom {
-    @apply transition-transform duration-200 hover:scale-105;
+    @apply reduce-motion:hover:scale-100 transition-transform duration-200 hover:scale-105;
 }
 
 .interact-none {
@@ -63,7 +63,7 @@
 }
 
 .underline-hover {
-    @apply dark:after:bg-white relative after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left
+    @apply reduce-motion:after:transition-none dark:after:bg-white relative after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left
 }
 
 .shadow-custom {

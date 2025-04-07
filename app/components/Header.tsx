@@ -57,7 +57,7 @@ const Header = ({
                 {
                     ...{
                         ref : headerRef,
-                        className : 'z-[100] w-full ease-in-out duration-500 headroom'
+                        className : 'reduce-motion:transition-none z-[100] w-full ease-in-out duration-500 headroom'
                     }
                 }
             >
@@ -68,7 +68,7 @@ const Header = ({
                             ...{
                                 src : Logo?.src,
                                 alt : '',
-                                className : 'dark:opacity-0 opacity-100 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
+                                className : 'reduce-motion:transition-none dark:opacity-0 opacity-100 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
                             }
                         }
                     />
@@ -77,7 +77,7 @@ const Header = ({
                             ...{
                                 src : DarkLogo?.src,
                                 alt : '',
-                                className : 'dark:opacity-100 opacity-0 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
+                                className : 'reduce-motion:transition-none dark:opacity-100 opacity-0 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
                             }
                         }
                     />
@@ -109,7 +109,7 @@ const Header = ({
                                 })
                             }
                             <li>
-                                <button className='bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center hover:animate-rotate-gear'>
+                                <button className='reduce-motion:hover:animate-none hover:animate-rotate-gear bg-white p-1 rounded-full shadow border-grey h-10 w-10 flex justify-center items-center'>
                                     <GearLogo 
                                         {
                                             ...{
@@ -140,7 +140,7 @@ const Header = ({
             <nav 
                 {
                     ...{
-                        className : 'dark:bg-tertiary-green md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
+                        className : 'reduce-motion:transition-none dark:bg-tertiary-green md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
                     }
                 }
             >
@@ -252,7 +252,7 @@ const Header = ({
             <div 
                 {
                     ...{
-                        className : 'fixed z-[100] top-0 bottom-0 left-0 right-0 bg-black transition-opacity duration-300 ' + ( isMenuOpen || isSettingsOpen ? 'opacity-[0.5]' : 'opacity-0 interact-none' ),
+                        className : 'reduce-motion:transition-none fixed z-[100] top-0 bottom-0 left-0 right-0 bg-black transition-opacity duration-300 ' + ( isMenuOpen || isSettingsOpen ? 'opacity-[0.5]' : 'opacity-0 interact-none' ),
                         onClick : () => { 
                             setIsMenuOpen ( false )
                             setIsSettingsOpen( false )

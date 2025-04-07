@@ -99,7 +99,7 @@ export const Feature = ({
 						<span className='group-hover:underline text-lg'>
 							Read more
 						</span>
-						<RightChevron className='w-6 transition-all duration-200 group-hover:translate-x-1'/>
+						<RightChevron className='reduce-motion:transition-none w-6 transition-all duration-200 group-hover:translate-x-1'/>
 					</div>
 				</div>
 			</div>

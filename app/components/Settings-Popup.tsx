@@ -13,24 +13,49 @@ export const Settings = ({
 
     const [ theme, setTheme ] = useState( 'light' );
     
-    const [ isMotionOn, setIsMotionOn ] = useState( 'false' );
+    const [ motionMode, setMotionMode ] = useState( 'normal' );
 
     useEffect( () => {
-        
-        document.querySelector( 'html' )?.setAttribute( 'data-theme', localStorage?.theme );
 
-        localStorage.theme === 'dark' ? setTheme( 'dark' ) : setTheme( 'light' );
+        const htmlEl = document.querySelector( 'html' );
 
-    }, [])
+        if ( localStorage.theme ) {
+
+            htmlEl?.setAttribute( 'data-theme', localStorage?.theme );
+
+            localStorage.theme === 'dark' ? setTheme( 'dark' ) : setTheme( 'light' );
+
+        } else {
+
+            htmlEl?.setAttribute( 'data-theme', 'light' );
+
+        }
+
+        if ( localStorage.motionMode ) {
+
+            htmlEl?.setAttribute( 'data-motion', localStorage?.motionMode );
+
+            localStorage.motionMode === 'reduced' ? setMotionMode( 'reduced' ) : setMotionMode( 'normal' )
+
+        } else {
+
+            htmlEl?.setAttribute( 'data-motion', 'reduced' );
+
+        }
+
+    }, []);
 
     const handleSaveChanges = () => {
 
-        document.querySelector( 'html' )?.setAttribute( 'data-theme', theme );
+        const htmlEl = document.querySelector( 'html' );
+
+        htmlEl?.setAttribute( 'data-theme', theme );
+
+        htmlEl?.setAttribute( 'data-motion', motionMode );
 
         localStorage.setItem( 'theme', theme );
         
-        localStorage.setItem( 'isReducedMotion', `${ isMotionOn }` );
-        
+        localStorage.setItem( 'motionMode', motionMode );
 
         setIsSettingsOpen( false );
 
@@ -38,11 +63,13 @@ export const Settings = ({
 
     const resetSettings = () => {
 
+        document.querySelector( 'html' )?.setAttribute( 'data-theme', 'light' );
+
+        setTheme( 'light' );
+
+        setMotionMode( 'normal' );
+
         localStorage.clear();
-
-        setTheme( 'false' );
-
-        setIsMotionOn( 'false' );
 
         setIsSettingsOpen( false );
 
@@ -52,7 +79,7 @@ export const Settings = ({
         <div 
             {
                 ...{
-                    className : 'dark-bg lg:w-[60%] md:px-8 w-[calc(100%-32px)] settings-pop-up overflow-y-auto px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1 overflow-y-auto' : 'opacity-0 interact-none')
+                    className : 'reduce-motion:transition-none dark-bg lg:w-[60%] md:px-8 w-[calc(100%-32px)] settings-pop-up overflow-y-auto px-6 fixed z-[200] transition-translate duration-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-6 rounded-2xl shadow border-grey ' + ( isSettingsOpen ? 'opacity-1 overflow-y-auto' : 'opacity-0 interact-none')
                 }
             }
         >
@@ -83,21 +110,21 @@ export const Settings = ({
                         <SunSvg 
                             {
                                 ...{
-                                    className : 'relative z-10 w-6 h-6 transition-all duration-300 ' + ( theme === 'dark' ? 'stroke-white' : 'stroke-black' ) 
+                                    className : 'reduce-motion:transition-none relative z-10 w-6 h-6 transition-all duration-300 ' + ( theme === 'dark' ? 'stroke-white' : 'stroke-black' ) 
                                 }
                             }
                         />
                         <MoonSvg 
                             {
                                 ...{
-                                    className : 'relative z-10 w-6 h-6 transition-all duration-300 ' + ( theme === 'dark' ? 'stroke-black' : 'stroke-white' )
+                                    className : 'reduce-motion:transition-none relative z-10 w-6 h-6 transition-all duration-300 ' + ( theme === 'dark' ? 'stroke-black' : 'stroke-white' )
                                 }
                             }
                         />
                         <div
                             {
                                 ...{
-                                    className : 'absolute bg-white rounded-full p-1 w-6 h-6 transition-all duration-300 left-0.5 ' + ( theme === 'dark' ? 'translate-x-[calc(100%+8px)]' : '' )
+                                    className : 'reduce-motion:transition-none absolute bg-white rounded-full p-1 w-6 h-6 transition-all duration-300 left-0.5 ' + ( theme === 'dark' ? 'translate-x-[calc(100%+8px)]' : '' )
                                 }
                             }
                         />
@@ -114,21 +141,21 @@ export const Settings = ({
                         {
                             ...{
                                 className : 'relative relative mt-2 w-12',
-                                onClick : () => setIsMotionOn( isMotionOn === 'true' ? 'false' : 'true' )
+                                onClick : () => setMotionMode( motionMode === 'reduced' ? 'normal' : 'reduced' )
                             }
                         }
                     >
                         <div 
                             {
                                 ...{
-                                    className : 'w-12 h-6 rounded-2xl ' + ( isMotionOn === 'true' ? 'bg-primary-green' : 'bg-[#636363]' )
+                                    className : 'w-12 h-6 rounded-2xl ' + ( motionMode === 'reduced' ? 'bg-primary-green' : 'bg-[#636363]' )
                                 }
                             }
                         />
                         <div 
                             {
                                 ...{
-                                    className : 'bg-white top-1/2 -translate-y-1/2 left-0.5 h-5 w-5 absolute rounded-full transition-all duration-300 ' + ( isMotionOn === 'true' ? 'translate-x-[calc(100%+4px)]' : '' )
+                                    className : 'reduce-motion:transition-none bg-white top-1/2 -translate-y-1/2 left-0.5 h-5 w-5 absolute rounded-full transition-all duration-300 ' + ( motionMode === 'reduced' ? 'translate-x-[calc(100%+4px)]' : '' )
                                 }
                             }
                         />
@@ -149,7 +176,7 @@ export const Settings = ({
                         <Redo 
                             {
                                 ...{
-                                    className : 'dark:stroke-white w-4 h-4 transition-rotate duration-300 group-hover:-rotate-90'
+                                    className : 'reduce-motion:transition-none dark:stroke-white w-4 h-4 transition-rotate duration-300 group-hover:-rotate-90'
                                 }
                             }
                         />

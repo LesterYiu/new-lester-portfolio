@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import plugin from "tailwindcss/plugin";
 
 export default {
 	content: [
@@ -74,9 +75,17 @@ export default {
 			}
 		}
 	},
-	darkMode: ['class', '[data-theme="dark"]'], 
+	darkMode: ['class', '[data-theme="dark"]'],
 	future: {
 		hoverOnlyWhenSupported: true,
 	},
-	plugins: [typography],
+	plugins: [
+		typography,
+		plugin(({ addVariant }) => {
+			addVariant(
+				'reduce-motion',
+				'&:where([data-motion="reduced"], [data-motion="reduced"] *)'
+			);
+		}),
+	  ],
 } satisfies Config;

@@ -135,7 +135,7 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isFirstNameInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isFirstNameInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
                                             'aria-hidden' : ( isInvalidObj?.isFirstNameInvalid ? false : true )
                                         }
                                     }
@@ -175,7 +175,7 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isEmailInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isEmailInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
                                             'aria-hidden' : ( isInvalidObj?.isEmailInvalid ? false : true )
                                         }
                                     }
@@ -196,7 +196,7 @@ const Form = ({
                                 <p 
                                     {
                                         ...{
-                                            className : 'font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isMessageInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
+                                            className : 'reduce-motion:transition-none font-jost text-md text-red transition-all duration-400 select-none ' + ( isInvalidObj?.isMessageInvalid ? 'opacity-1 max-h-[100px]' : 'opacity-0 max-h-[0px]' ),
                                             'aria-hidden' : ( isInvalidObj?.isMessageInvalid ? false : true )
                                         }
                                     }
@@ -241,14 +241,14 @@ const Form = ({
                                     }
                                 }
                             />
-                            <p className='text-2xl font-jost'>
+                            <p className='dark:text-white text-2xl font-jost'>
                                 Form submitted
                             </p>
                         </div>
                         <div 
                             {
                                 ...{
-                                    className : 'bg-white transition-[opacity] duration-300 p-8 h-full h-full w-full  ' + ( isFormSubmitted ? 'opacity-[0.8]' : 'opacity-0 interact-none')
+                                    className : 'dark:bg-dark-primary bg-white transition-[opacity] duration-300 p-8 h-full h-full w-full  ' + ( isFormSubmitted ? 'opacity-[0.8]' : 'opacity-0 interact-none')
                                 }
                             }
                         />
