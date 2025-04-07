@@ -22,7 +22,7 @@ const Hero = ({
     const links = linksCollection?.items;
 
     return (
-        <section className='lg:pb-[165px] dark:bg-gradient-to-b dark:from-tertiary-green dark:to-dark-tertiary pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
+        <section className='lg:pb-[165px] dark:bg-gradient-to-t dark:from-tertiary-green dark:to-dark-tertiary pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
             <div className='lg:flex-row lg:space-x-8 wrapper-custom flex-col-reverse flex items-center'>
                 <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&

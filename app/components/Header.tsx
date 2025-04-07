@@ -125,7 +125,7 @@ const Header = ({
                                     <HamburgerSvg 
                                         {
                                             ...{
-                                                className : 'dark:stroke-primary-green h-8 stroke-tertiary-green',
+                                                className : 'h-8 stroke-tertiary-green',
                                                 onClick : () => { setIsMenuOpen ( true )}
                                             }
                                         }
@@ -175,7 +175,7 @@ const Header = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'dark-text relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left',
+                                                    className : 'dark-text relative font-outfit font-medium text-3xl underline-hover',
                                                     onClick : () => setIsMenuOpen( false )
                                                 }
                                             }
@@ -243,7 +243,7 @@ const Header = ({
                     <ExitSvg 
                         {
                             ...{
-                                className : 'dark:stroke-primary-green h-10 w-10'
+                                className : 'h-10 w-10'
                             }
                         }
                     />

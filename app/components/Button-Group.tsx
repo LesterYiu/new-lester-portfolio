@@ -20,7 +20,7 @@ export const ButtonGroup = ({
                 <LeftChevron 
                     {
                         ...{
-                            className : 'dark:stroke-black stroke-tertiary-green w-10'
+                            className : 'stroke-tertiary-green w-10'
                         }
                     }
                 />
@@ -36,7 +36,7 @@ export const ButtonGroup = ({
                 <RightChevron 
                     {
                         ...{
-                            className : 'dark:stroke-black stroke-tertiary-green w-10'
+                            className : 'stroke-tertiary-green w-10'
                         }
                     }
                 />

@@ -43,7 +43,7 @@
 }
 
 .standard-svg {
-    @apply dark:stroke-primary-green fill-secondary-green stroke-tertiary-green;
+    @apply fill-secondary-green stroke-tertiary-green;
 }
 
 .dark-text {
@@ -115,6 +115,10 @@ html[data-theme="dark"] .headroom--not-top a {
     color: black;
 }
 
+html[data-theme="dark"] .headroom--not-top .underline-hover:is([data-theme="dark"] *)::after {
+    background-color: black;
+}
+
 .headroom--not-top .custom-header-border {
     background-color: #e5e7eb;
     box-shadow: 0 4px 9px rgba(0,0,0,.047),0 1.54074px 2.86667px rgba(0,0,0,.073),0 .32593px .73333px rgba(0,0,0,.12);
@@ -134,6 +138,10 @@ html[data-theme="dark"] .headroom--not-top a {
 
 html[data-theme="dark"] .react-multi-carousel-dot--active button {
     background : white !important;
+}
+
+html[data-theme="dark"] .react-multi-carousel-dot button {
+    border: 1px solid white !important;
 }
 
 .react-multi-carousel-dot button {

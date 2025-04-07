@@ -42,7 +42,7 @@ export const Feature = ({
 			<div
 				{
 					...{
-						className : 'dark:bg-tertiary-green dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
+						className : 'dark:bg-[#363636] dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
 						onMouseDown : onMouseDownClick,
 						onMouseUp : onFeatureClick
 					}

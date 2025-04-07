@@ -8,7 +8,7 @@ export const Footer = () => {
         <footer className='relative'>
             <img src={ Wave.src } alt="" className='light-img lg:h-28 h-10 w-full' />
             <img src={ DarkWave.src } alt="" className='dark-img lg:h-28 h-10 w-full' />
-            <div className='dark:bg-dark-tertiary bg-primary-green'>
+            <div className='dark:bg-tertiary-green bg-primary-green'>
                 <div className='lg:pt-4 sm:pt-14 pt-12 pb-24 wrapper-custom flex flex-col items-center'>
                     <img 
                         {
