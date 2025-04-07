@@ -78,7 +78,7 @@ export const FeaturePopup = ({
         <div 
             {
                 ...{
-                    className : 'dark:bg-gradient-to-b dark:from-dark-primary dark:to-dark-quaternary z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
+                    className : 'dark:bg-gradient-to-b dark:from-tertiary-green dark:to-tertiary-green z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
                     "aria-hidden" : ( isFeatureOpen ? 'false' : 'true' )
                 }
             }
@@ -182,7 +182,7 @@ export const FeaturePopup = ({
                                         <li key={ key }
                                             {
                                                 ...{
-                                                    className : 'dark:bg-dark-tertiary font-jost text-lg text-white bg-primary-green rounded-3xl px-4 py-1 whitespace-nowrap interact-none'
+                                                    className : 'dark:bg-primary-green font-jost text-lg text-white bg-primary-green rounded-3xl px-4 py-1 whitespace-nowrap interact-none'
                                                 }
                                             }
                                         >

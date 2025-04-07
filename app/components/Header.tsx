@@ -140,7 +140,7 @@ const Header = ({
             <nav 
                 {
                     ...{
-                        className : 'md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
+                        className : 'dark:bg-tertiary-green md:w-1/2 w-full fixed bg-secondary-green shadow py-8 px-8 top-0 right-0 h-full z-[200] transition-translate duration-300 ' + ( isMenuOpen ? 'translate-x-0' : 'translate-x-[100%]' )
                     }
                 }
             >
@@ -152,7 +152,16 @@ const Header = ({
                                     ...{
                                         src : Logo?.src,
                                         alt : '',
-                                        className : 'w-20 h-auto'
+                                        className : 'light-img w-20 h-auto'
+                                    }
+                                }
+                            />
+                            <img 
+                                {
+                                    ...{
+                                        src : DarkLogo?.src,
+                                        alt : '',
+                                        className : 'dark-img w-20 h-auto'
                                     }
                                 }
                             />
@@ -166,7 +175,7 @@ const Header = ({
                                             {
                                                 ...{
                                                     href : i.link,
-                                                    className : 'relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left',
+                                                    className : 'dark-text relative font-outfit font-medium text-3xl after:absolute after:w-full after:h-[3px] after:-bottom-0 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left',
                                                     onClick : () => setIsMenuOpen( false )
                                                 }
                                             }
@@ -184,7 +193,7 @@ const Header = ({
                                 {
                                     ...{
                                         href : 'https://www.linkedin.com/in/lester-yiu/',
-                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        className : 'dark:bg-white w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
                                         target : '_blank',
                                         rel : 'noopener'
                                     }
@@ -198,7 +207,7 @@ const Header = ({
                                 {
                                     ...{
                                         href : 'https://github.com/LesterYiu',
-                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        className : 'dark:bg-white w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
                                         target : '_blank',
                                         rel : 'noopener'
                                     }
@@ -212,7 +221,7 @@ const Header = ({
                                 {
                                     ...{
                                         href : 'mailto:lester.ws.yiu@gmail.com',
-                                        className : 'w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
+                                        className : 'dark:bg-white w-[45px] h-[45px] flex items-center justify-center inline-block drop-shadow-md p-2.5 bg-primary-green rounded-full scale-custom',
                                         target : '_blank',
                                         rel : 'noopener'
                                     }

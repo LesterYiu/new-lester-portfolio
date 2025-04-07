@@ -121,7 +121,7 @@ export const Settings = ({
                         <div 
                             {
                                 ...{
-                                    className : 'w-12 h-6 rounded-2xl ' + ( isMotionOn === 'true' ? 'dark:bg-dark-tertiary bg-primary-green' : 'bg-[#636363]' )
+                                    className : 'w-12 h-6 rounded-2xl ' + ( isMotionOn === 'true' ? 'bg-primary-green' : 'bg-[#636363]' )
                                 }
                             }
                         />
@@ -168,7 +168,7 @@ export const Settings = ({
                         <button 
                             {
                                 ...{
-                                    className : 'dark:border-none dark:bg-dark-tertiary sm:text-left text-center font-jost text-base border-[#D3D3D3] border px-6 py-2 rounded-3xl bg-primary-green text-white font-medium scale-custom',
+                                    className : 'dark:border-none dark:bg-primary-green sm:text-left text-center font-jost text-base border-[#D3D3D3] border px-6 py-2 rounded-3xl bg-primary-green text-white font-medium scale-custom',
                                     onClick : handleSaveChanges
                                 }
                             }

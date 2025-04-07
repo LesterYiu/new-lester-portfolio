@@ -35,7 +35,7 @@
 }
 
 .standard-button {
-    @apply dark:bg-dark-tertiary text-white font-jost text-lg bg-primary-green px-10 py-2.5 rounded-3xl;
+    @apply dark:bg-white dark:text-black text-white font-jost text-lg bg-primary-green px-10 py-2.5 rounded-3xl;
 }
 
 .standard-input {
@@ -43,7 +43,7 @@
 }
 
 .standard-svg {
-    @apply fill-secondary-green stroke-tertiary-green;
+    @apply dark:stroke-primary-green fill-secondary-green stroke-tertiary-green;
 }
 
 .dark-text {

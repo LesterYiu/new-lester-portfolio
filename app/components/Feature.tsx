@@ -42,7 +42,7 @@ export const Feature = ({
 			<div
 				{
 					...{
-						className : 'dark:bg-dark-quaternary dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
+						className : 'dark:bg-tertiary-green dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
 						onMouseDown : onMouseDownClick,
 						onMouseUp : onFeatureClick
 					}
@@ -80,7 +80,7 @@ export const Feature = ({
 								<li key={ key }
 									{
 										...{
-											className : 'dark:bg-dark-tertiary font-jost text-white bg-primary-green text-md rounded-3xl px-4 py-1 whitespace-nowrap'
+											className : 'dark:bg-primary-green font-jost text-white bg-primary-green text-md rounded-3xl px-4 py-1 whitespace-nowrap'
 										}
 									}
 								>
