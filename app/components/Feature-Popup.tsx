@@ -274,7 +274,7 @@ export const FeaturePopup = ({
                     <ExitSvg 
                         {
                             ...{
-                                className : 'h-10 w-10'
+                                className : 'dark:stroke-primary-green h-10 w-10'
                             }
                         }
                     />

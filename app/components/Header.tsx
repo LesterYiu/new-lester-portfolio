@@ -125,7 +125,7 @@ const Header = ({
                                     <HamburgerSvg 
                                         {
                                             ...{
-                                                className : 'h-8 stroke-tertiary-green',
+                                                className : 'dark:stroke-primary-green h-8 stroke-tertiary-green',
                                                 onClick : () => { setIsMenuOpen ( true )}
                                             }
                                         }
@@ -243,7 +243,7 @@ const Header = ({
                     <ExitSvg 
                         {
                             ...{
-                                className : 'h-10 w-10'
+                                className : 'dark:stroke-primary-green h-10 w-10'
                             }
                         }
                     />
