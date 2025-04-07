@@ -3,6 +3,7 @@
 import Headroom from 'headroom.js';
 import { useEffect, useRef, useState } from 'react';
 import Logo from '@/public/logo-header.png';
+import DarkLogo from '@/public/logo-white.png';
 import { ExitSvg, GearLogo, HamburgerSvg } from '@/app/utility/svgs';
 import { Link } from '../utility/types';
 import { RenderLinkSvg } from '../utility/utility-functions';
@@ -60,13 +61,23 @@ const Header = ({
                     }
                 }
             >
-                <div className='wrapper-custom h-[100px] w-full flex items-center justify-between'>
+                <div className='relative wrapper-custom h-[100px] w-full flex items-center justify-between'>
+                    <div className='h-[80px] w-[80px]'/>
                     <img 
                         {
                             ...{
                                 src : Logo?.src,
                                 alt : '',
-                                className : 'w-20 h-auto'
+                                className : 'dark:opacity-0 opacity-100 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
+                            }
+                        }
+                    />
+                   <img 
+                        {
+                            ...{
+                                src : DarkLogo?.src,
+                                alt : '',
+                                className : 'dark:opacity-100 opacity-0 transition-all duration-400 absolute left-4 top-1/2 -translate-y-1/2 w-20 h-auto'
                             }
                         }
                     />
@@ -79,7 +90,7 @@ const Header = ({
                                         <li key={ key }
                                             {
                                                 ...{
-                                                    className : 'lg:inline-block hidden'
+                                                    className : 'dark-text lg:inline-block hidden'
                                                 }
                                             }
                                         >

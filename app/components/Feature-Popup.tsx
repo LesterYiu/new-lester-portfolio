@@ -78,7 +78,7 @@ export const FeaturePopup = ({
         <div 
             {
                 ...{
-                    className : 'z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
+                    className : 'dark:bg-gradient-to-b dark:from-dark-primary dark:to-dark-quaternary z-[100] fixed inset-0 bg-gradient-to-b from-green to-white transition-all duration-200 ' + ( ! isFeatureOpen ? 'pointer-events-none opacity-0' : 'overflow-y-auto' ),
                     "aria-hidden" : ( isFeatureOpen ? 'false' : 'true' )
                 }
             }
@@ -107,12 +107,12 @@ export const FeaturePopup = ({
                     }
                     <div className='flex flex-col gap-y-4'>
                         { currentProject?.title &&
-                            <h3 className='md:mr-0 mr-14 font-jost font-medium text-3xl'>
+                            <h3 className='dark-text md:mr-0 mr-14 font-jost font-medium text-3xl'>
                                 { currentProject?.title }
                             </h3>
                         }
                         { ( currentProject?.previewLink || currentProject?.sourceLink ) &&
-                            <div className='space-x-4'>
+                            <div className='dark-text space-x-4'>
                                 <p className='font-jost inline-block text-lg'>
                                     Explore:
                                 </p>
@@ -137,7 +137,7 @@ export const FeaturePopup = ({
                                                 href : currentProject?.sourceLink?.link,
                                                 target : ( currentProject?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
                                                 rel : 'noopener',
-                                                className : 'font-jost underline text-lg'
+                                                className : 'dark-text font-jost underline text-lg'
                                             }
                                         }
                                     >
@@ -161,13 +161,13 @@ export const FeaturePopup = ({
                             />
                         }
                         { currentProject?.description &&
-                            <p className='description-custom'>
+                            <p className='dark-text description-custom'>
                                 { currentProject?.description }
                             </p>
                         }
                         { currentProject?.tags &&
                             <div className='flex gap-x-4 gap-y-2 flex-wrap'>
-                                <p className='description-custom'>
+                                <p className='dark-text description-custom'>
                                     Project Tech Stack:
                                 </p>
                                 <ul 
@@ -182,7 +182,7 @@ export const FeaturePopup = ({
                                         <li key={ key }
                                             {
                                                 ...{
-                                                    className : 'font-jost text-lg text-white bg-primary-green rounded-3xl px-4 py-1 whitespace-nowrap interact-none'
+                                                    className : 'dark:bg-dark-tertiary font-jost text-lg text-white bg-primary-green rounded-3xl px-4 py-1 whitespace-nowrap interact-none'
                                                 }
                                             }
                                         >
@@ -235,11 +235,11 @@ export const FeaturePopup = ({
                         <LeftChevron 
                             {
                                 ...{
-                                    className : 'h-8 w-8 mr-2'
+                                    className : 'dark:stroke-white  h-8 w-8 mr-2'
                                 }
                             }
                         />
-                        <span className='interact-none'>
+                        <span className='dark-text interact-none'>
                             Previous Project
                         </span>
                     </button>
@@ -251,13 +251,13 @@ export const FeaturePopup = ({
                             }
                         }
                     >
-                        <span className='interact-none'>
+                        <span className='dark-text interact-none'>
                             Next Project
                         </span>
                         <RightChevron 
                             {
                                 ...{
-                                    className : 'h-8 w-8 ml-2'
+                                    className : 'dark:stroke-white  h-8 w-8 ml-2'
                                 }
                             }
                         />

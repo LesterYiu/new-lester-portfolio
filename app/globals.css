@@ -35,7 +35,7 @@
 }
 
 .standard-button {
-    @apply text-white font-jost text-lg bg-primary-green px-10 py-2.5 rounded-3xl;
+    @apply dark:bg-dark-tertiary text-white font-jost text-lg bg-primary-green px-10 py-2.5 rounded-3xl;
 }
 
 .standard-input {
@@ -46,8 +46,24 @@
     @apply fill-secondary-green stroke-tertiary-green;
 }
 
+.dark-text {
+    @apply dark:text-white
+}
+
+.dark-img {
+    @apply dark:inline-block hidden
+}
+
+.light-img {
+    @apply dark:hidden inline-block
+}
+
+.dark-bg {
+    @apply dark:bg-dark-primary
+}
+
 .underline-hover {
-    @apply relative after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left
+    @apply dark:after:bg-white relative after:absolute after:w-full after:h-[3px] after:-bottom-1 after:left-[1px] after:bg-primary-green after:origin-bottom-left after:scale-x-0 after:transition-transform after:duration-300 after:hover:scale-x-100 after:hover:origin-bottom-left
 }
 
 .shadow-custom {
@@ -78,6 +94,27 @@
     transition-duration: 500ms;
 }
 
+html[data-theme="dark"] .headroom--not-top {
+    background-color: rgba(255, 255, 255, 0.70);
+}
+
+html[data-theme="dark"] .headroom--not-top .custom-header-border {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.headroom--not-top .dark\:opacity-0:is([data-theme="dark"] *) {
+    opacity: 100%;
+}
+
+.headroom--not-top .dark\:opacity-100:is([data-theme="dark"] *) {
+    opacity: 0%;
+}
+
+html[data-theme="dark"] .headroom--not-top a {
+    color: black;
+}
+
 .headroom--not-top .custom-header-border {
     background-color: #e5e7eb;
     box-shadow: 0 4px 9px rgba(0,0,0,.047),0 1.54074px 2.86667px rgba(0,0,0,.073),0 .32593px .73333px rgba(0,0,0,.12);
@@ -93,6 +130,10 @@
 
 .react-multi-carousel-dot--active button {
     background : #5D8D4B !important;
+}
+
+html[data-theme="dark"] .react-multi-carousel-dot--active button {
+    background : white !important;
 }
 
 .react-multi-carousel-dot button {

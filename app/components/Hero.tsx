@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import HeroBackground from '@/public/blob.png';
+import DarkHeroBackground from '@/public/blob-dark.png';
 import WaveImage from '@/public/wave.png';
+import DarkWaveImage from '@/public/wave-dark.png';
 import { MailLogo, DownloadLogo } from '../utility/svgs';
 import { ResultObj } from '../utility/types';
 
@@ -20,21 +22,21 @@ const Hero = ({
     const links = linksCollection?.items;
 
     return (
-        <section className='lg:pb-[165px] pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
+        <section className='lg:pb-[165px] dark:bg-gradient-to-b dark:from-dark-tertiary dark:to-dark-primary pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
             <div className='lg:flex-row lg:space-x-8 wrapper-custom flex-col-reverse flex items-center'>
                 <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&
-                        <p className='primary-heading-custom'>
+                        <p className='dark-text primary-heading-custom'>
                             { heading }
                         </p>
                     }
                     { subheading &&
-                        <h1 className='secondary-heading-custom'>
+                        <h1 className='dark-text secondary-heading-custom'>
                             { subheading }
                         </h1>
                     }
                     { description &&
-                        <p className='description-custom'>
+                        <p className='dark-text description-custom'>
                             { description }
                         </p>
                     }
@@ -93,12 +95,24 @@ const Hero = ({
                         <Image
                             {
                                 ...{
+                                    src : DarkHeroBackground?.src,
+                                    alt : image?.description,
+                                    width : 500,
+                                    height : 500,
+                                    quality : 100,
+                                    className : 'dark-img absolute top-0 left-1/2 -translate-x-1/2'
+                                }
+                            }
+                        />
+                        <Image
+                            {
+                                ...{
                                     src : HeroBackground?.src,
                                     alt : image?.description,
                                     width : 500,
                                     height : 500,
                                     quality : 100,
-                                    className : 'absolute top-0 left-1/2 -translate-x-1/2'
+                                    className : 'light-img absolute top-0 left-1/2 -translate-x-1/2'
                                 }
                             }
                         />
@@ -113,7 +127,19 @@ const Hero = ({
                         width : 2000,
                         height : 175,
                         quality : 100,
-                        className : 'absolute w-full left-0 bottom-0 h-[125px]'
+                        className : 'dark:hidden inline-block absolute w-full left-0 bottom-0 h-[125px]'
+                    }
+                }
+            />
+            <Image
+                {
+                    ...{
+                        src : DarkWaveImage?.src,
+                        alt : image?.description,
+                        width : 2000,
+                        height : 175,
+                        quality : 100,
+                        className : 'dark:inline-block hidden absolute left-0 bottom-0 h-[125px]'
                     }
                 }
             />

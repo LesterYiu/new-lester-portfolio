@@ -42,7 +42,7 @@ export const Feature = ({
 			<div
 				{
 					...{
-						className : 'group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
+						className : 'dark:bg-dark-quaternary dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
 						onMouseDown : onMouseDownClick,
 						onMouseUp : onFeatureClick
 					}
@@ -50,11 +50,11 @@ export const Feature = ({
 			>
 				<div className='relative space-y-4 p-6 flex flex-col h-full'>
 					{ image &&
-						<div className='h-48 flex justify-center'>
+						<div className='dark:bg-white dark:rounded-3xl dark:p-3 h-48 flex justify-center'>
 							<img 
 								{
 									...{
-										className : 'h-48 object-contain interact-none',
+										className : 'object-contain interact-none',
 										src : image?.url,
 										alt : ''
 									}
@@ -63,7 +63,7 @@ export const Feature = ({
 						</div>
 					}
 					{ title &&
-						<h2 className='font-jost text-2xl text-black text-left font-medium whitespace-break-spaces interact-none'>
+						<h2 className='dark-text font-jost text-2xl text-black text-left font-medium whitespace-break-spaces interact-none'>
 							{ title }
 						</h2>
 					}
@@ -80,7 +80,7 @@ export const Feature = ({
 								<li key={ key }
 									{
 										...{
-											className : 'font-jost text-white bg-primary-green text-md rounded-3xl px-4 py-1 whitespace-nowrap'
+											className : 'dark:bg-dark-tertiary font-jost text-white bg-primary-green text-md rounded-3xl px-4 py-1 whitespace-nowrap'
 										}
 									}
 								>
@@ -91,11 +91,11 @@ export const Feature = ({
 						</ul>
 					}
 					{ description &&
-						<p className='line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
+						<p className='dark-text line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
 							{ description }
 						</p>
 					}
-					<div className='font-jost flex space-x-1'>
+					<div className='dark-text font-jost flex space-x-1'>
 						<span className='group-hover:underline text-lg'>
 							Read more
 						</span>

@@ -38,20 +38,21 @@ export const FeatureCarousel = ( {
 		<section
 			{
 				...{
-					id : ( sectionId || undefined )
+					id : ( sectionId || undefined ),
+					className : 'dark-bg '
 				}
 			}
 		>
 			<div className='md:pb-0 relative max-w-[1024px] mx-auto pl-4 space-y-4 pb-8 mb-[125px]'>
-				<p className='primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
+				<p className='dark:decoration-white dark-text primary-heading-custom underline decoration-primary-green decoration-[3px] underline-offset-[6px]'>
 					{ title }
 				</p>
 				<div className='flex items-center space-x-2'>
-					<StarSvg className='w-6 h-6' />
-					<h2 className='tertiary-heading-custom'>
+					<StarSvg className='dark:fill-white fill-primary-green w-6 h-6' />
+					<h2 className='dark-text tertiary-heading-custom'>
 						{ subheading }
 					</h2>
-					<StarSvg className='w-6 h-6' />
+					<StarSvg className='dark:fill-white fill-primary-green w-6 h-6' />
 				</div>
 				<Carousel 
 					{

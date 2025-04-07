@@ -21,6 +21,10 @@ export default {
 				'primary-green' : '#5D8D4B',
 				'secondary-green' : '#F6FDF3',
 				'tertiary-green' : '#303c2c',
+				'dark-primary' : '#1E1D1D',
+				'dark-secondary' : '#28441d',
+				'dark-tertiary' : '#335526',
+				'dark-quaternary' : '#404040',
 				grey : '#fdfdfd',
 				'secondary-grey' : '#e5e7eb'
 			},
@@ -56,14 +60,21 @@ export default {
 					'to' : {
 						width : '100%'
 					}
+				},
+				'fade-out' : {
+					'0%' : { opacity: '100%' },
+					'50%' : { opacity : '50%'},
+					'100%' : { opacity: '0%' }
 				}
 			},
 			animation : {
 				'rotate-gear' : 'rotate-gear 10s linear infinite, button-scale 200ms ease-out forwards',
-				'underline-text' : 'underline 200ms ease-out'
+				'underline-text' : 'underline 200ms ease-out',
+				'fade-out': 'fade-out 0.3s ease-out forwards',
 			}
 		}
 	},
+	darkMode: ['class', '[data-theme="dark"]'], 
 	future: {
 		hoverOnlyWhenSupported: true,
 	},

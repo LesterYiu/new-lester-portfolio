@@ -1,3 +1,4 @@
+import Loader from './components/Loader';
 import './globals.css';
 
 export const metadata = {
@@ -40,8 +41,9 @@ export default async function RootLayout({
 					}
 				/>
 			</head>
-			<body>
+			<body className='dark-bg'>
 				<main>
+					<Loader />
 					{ children }
 				</main>
 			</body>

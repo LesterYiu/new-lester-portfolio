@@ -12,7 +12,7 @@ export const ButtonGroup = ({
             <button 
                 {
                     ...{
-                        className : 'rounded-full shadow p-2 border border-grey scale-custom text-lg' + ( currentSlide === 0 ? ' disable' : '' ),
+                        className : 'dark:bg-dark-tertiary dark:border-none rounded-full shadow p-2 border border-grey scale-custom text-lg' + ( currentSlide === 0 ? ' disable' : '' ),
                         onClick : ( () => previous() )
                     }
                 }
@@ -20,7 +20,7 @@ export const ButtonGroup = ({
                 <LeftChevron 
                     {
                         ...{
-                            className : 'w-10 stroke-tertiary-green'
+                            className : 'dark:stroke-white stroke-tertiary-green w-10'
                         }
                     }
                 />
@@ -29,14 +29,14 @@ export const ButtonGroup = ({
                 {
                     ...{
                         onClick : ( () => next() ),
-                        className : 'rounded-full shadow p-2 border border-grey scale-custom'
+                        className : 'dark:bg-dark-tertiary dark:border-none rounded-full shadow p-2 border border-grey scale-custom'
                     }
                 }
             >
                 <RightChevron 
                     {
                         ...{
-                            className : 'w-10 stroke-tertiary-green'
+                            className : 'dark:stroke-white stroke-tertiary-green w-10'
                         }
                     }
                 />
