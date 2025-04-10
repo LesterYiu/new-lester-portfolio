@@ -11,7 +11,7 @@ export const metadata = {
 		description: 'This is a portfolio website made by Lester Yiu',
 		images: [
 			{
-				url: '/social-card.png',
+				url: 'https://lester-portfolio-prod.netlify.app/social-card.png',
 				alt: "Lester Yiu's Social Card"
 			}
 		]
@@ -21,7 +21,7 @@ export const metadata = {
 		title: "Lester Yiu - Portfolio",
 		description: 'This is a portfolio website made by Lester Yiu',
 		images: [
-			'/social-card.png'
+			'https://lester-portfolio-prod.netlify.app/social-card.png'
 		]
 	}
 };
@@ -64,7 +64,7 @@ export default async function RootLayout({
 					{
 						...{
 							rel: 'shortcut icon',
-							href: '/favicon-16x16.png',
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-16x16.png',
 							type: 'image/x-icon'
 						}
 					}
@@ -75,7 +75,7 @@ export default async function RootLayout({
 							rel: 'icon',
 							type: 'image/png',
 							sizes: '16x16',
-							href: '/favicon-16x16.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-16x16.png'
 						}
 					}
 				/>
@@ -85,7 +85,7 @@ export default async function RootLayout({
 							rel: 'icon',
 							type: 'image/png',
 							sizes: '32x32',
-							href: '/favicon-32x32.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-32x32.png'
 						}
 					}
 				/>
@@ -95,7 +95,7 @@ export default async function RootLayout({
 							rel: 'icon',
 							type: 'image/png',
 							sizes: '96x96',
-							href: '/favicon-96x96.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-96x96.png'
 						}
 					}
 				/>
@@ -105,7 +105,7 @@ export default async function RootLayout({
 							rel: 'icon',
 							type: 'image/png',
 							sizes: '192x192',
-							href: '/favicon-192x192.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-192x192.png'
 						}
 					}
 				/>
@@ -114,7 +114,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '57x57',
-							href: '/favicon-57x57.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-57x57.png'
 						}
 					}
 				/>
@@ -123,7 +123,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '60x60',
-							href: '/favicon-60x60.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-60x60.png'
 						}
 					}
 				/>
@@ -132,7 +132,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '72x72',
-							href: '/favicon-72x72.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-72x72.png'
 						}
 					}
 				/>
@@ -141,7 +141,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '76x76',
-							href: '/favicon-76x76.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-76x76.png'
 						}
 					}
 				/>
@@ -150,7 +150,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '114x114',
-							href: '/favicon-114x114.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-114x114.png'
 						}
 					}
 				/>
@@ -159,7 +159,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '120x120',
-							href: '/favicon-120x120.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-120x120.png'
 						}
 					}
 				/>
@@ -168,7 +168,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '144x144',
-							href: '/favicon-144x144.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-144x144.png'
 						}
 					}
 				/>
@@ -177,7 +177,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '152x152',
-							href: '/favicon-152x152.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-152x152.png'
 						}
 					}
 				/>
@@ -186,7 +186,7 @@ export default async function RootLayout({
 						...{
 							rel: 'apple-touch-icon',
 							sizes: '180x180',
-							href: '/favicon-180x180.png'
+							href: 'https://lester-portfolio-prod.netlify.app/favicon-180x180.png'
 						}
 					}
 				/>

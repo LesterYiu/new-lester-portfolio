@@ -103,11 +103,11 @@ export const Feature = ({
 					</ul>
 				}
 				{ featureDescription?.json &&
-					<p className='dark-text line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
+					<div className='dark-text line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
 						{
 							documentToReactComponents( featureDescription.json, options)
 						}
-					</p>
+					</div>
 				}
 				<div className='dark-text font-jost flex space-x-1'>
 					<span className='group-hover:underline interact-none text-lg'>

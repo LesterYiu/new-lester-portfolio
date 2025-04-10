@@ -3,7 +3,6 @@ import HeroBackground from '@/public/blob.png';
 import DarkHeroBackground from '@/public/blob-dark.png';
 import WaveImage from '@/public/wave.png';
 import DarkWaveImage from '@/public/wave-dark.png';
-import { MailLogo, DownloadLogo } from '../utility/svgs';
 import { ResultObj } from '../utility/types';
 import { RenderLinkSvg } from '../utility/utility-functions';
 

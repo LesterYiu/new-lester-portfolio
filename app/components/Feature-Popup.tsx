@@ -171,11 +171,11 @@ export const FeaturePopup = ({
                             />
                         }
                         { currentProject?.featureDescription?.json &&
-                            <p className='dark-text description-custom'>
+                            <div className='dark-text description-custom'>
                                 {
                                     documentToReactComponents( currentProject?.featureDescription.json, options )
                                 }
-                            </p>
+                            </div>
                         }
                         { currentProject?.tags &&
                             <div className='flex gap-x-4 gap-y-2 flex-wrap'>
