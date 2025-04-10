@@ -1,6 +1,8 @@
 import { FeatureObj } from '@/app/utility/types';
 import { useState } from 'react';
 import { RightChevron } from '../utility/svgs';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { options } from '../utility/contentful-richtext';
 
 export const Feature = ({ 
 	setIsFeatureOpen,
@@ -8,9 +10,9 @@ export const Feature = ({
 	setFeatureNum,
 	arrayKey,
 	title, 
-	description, 
+	featureDescription, 
 	image, 
-	labels,
+	labels
 } : FeatureObj ) => {
 
 	const [ clickTime, setClickTime ] = useState<number>( 0 );
@@ -42,7 +44,7 @@ export const Feature = ({
 		<div
 			{
 				...{
-					className : 'dark:bg-[#363636] dark:border-none group transition-all duration-200 relative bg-cover w-full bg-bottom border rounded-2xl cursor-pointer',
+					className : 'dark:bg-[#363636] dark:border-none group transition-all duration-200 relative bg-cover h-full w-full bg-bottom border rounded-2xl cursor-pointer',
 					onMouseDown : onMouseDownClick,
 					onMouseUp : onFeatureClick,
 					onKeyDown : ( e ) => {
@@ -64,7 +66,7 @@ export const Feature = ({
 						<img 
 							{
 								...{
-									className : 'object-contain interact-none',
+									className : 'h-48 object-contain interact-none',
 									src : image?.url,
 									alt : ''
 								}
@@ -100,9 +102,11 @@ export const Feature = ({
 						})}
 					</ul>
 				}
-				{ description &&
+				{ featureDescription?.json &&
 					<p className='dark-text line-clamp-3 font-jost text-md text-left text-lg text-black h-full interact-none'>
-						{ description }
+						{
+							documentToReactComponents( featureDescription.json, options)
+						}
 					</p>
 				}
 				<div className='dark-text font-jost flex space-x-1'>

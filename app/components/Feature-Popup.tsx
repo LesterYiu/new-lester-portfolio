@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { FeatureObj } from "../utility/types";
 import "wicg-inert";
 import { focusTrap } from "../utility/utility-functions";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { options } from "../utility/contentful-richtext";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
@@ -168,9 +170,11 @@ export const FeaturePopup = ({
                                 }
                             />
                         }
-                        { currentProject?.description &&
+                        { currentProject?.featureDescription?.json &&
                             <p className='dark-text description-custom'>
-                                { currentProject?.description }
+                                {
+                                    documentToReactComponents( currentProject?.featureDescription.json, options )
+                                }
                             </p>
                         }
                         { currentProject?.tags &&

@@ -14,6 +14,9 @@ export const LINK_GRAPHQL_FIELDS = `
 	link
 	svg
 	target
+	linkToAsset {
+		${ IMAGE_GRAPHQL_FIELDS }
+	}
 `
 
 export const HEADER_GRAPHQL_FIELDS = `
@@ -63,7 +66,9 @@ export const CARD_GRAPHQL_FIELDS = `
 
 export const FEATURE_GRAPHQL_FIELDS = `
 	title
-	description
+	featureDescription : description {
+		json
+	}
 	image {
 		${ IMAGE_GRAPHQL_FIELDS }
 	}

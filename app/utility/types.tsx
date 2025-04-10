@@ -22,7 +22,6 @@ export interface ImageObj {
 
 export interface FeatureObj {
 	title : string;
-	description : string;
 	image : ImageObj;
 	[ key: string ]: any;
     labels: [ string ];

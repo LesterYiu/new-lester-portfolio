@@ -104,7 +104,7 @@ export const FeatureCarousel = ( {
 										setFeatureNum,
 										arrayKey : key,
 										title : i?.title,
-										description: i?.description,
+										featureDescription: i?.featureDescription,
 										labels: i?.labels,
 										image: i?.image
 									}

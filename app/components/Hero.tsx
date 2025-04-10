@@ -5,10 +5,18 @@ import WaveImage from '@/public/wave.png';
 import DarkWaveImage from '@/public/wave-dark.png';
 import { MailLogo, DownloadLogo } from '../utility/svgs';
 import { ResultObj } from '../utility/types';
+import { RenderLinkSvg } from '../utility/utility-functions';
+
+interface AssetObject {
+    url : string
+}
 
 interface LinkObject {
     title : string,
-    link : string
+    link : string,
+    svg : string,
+    target : string,
+    linkToAsset : AssetObject
 }
 
 const Hero = ({ 
@@ -16,13 +24,20 @@ const Hero = ({
     subheading, 
     description, 
     image, 
-    linksCollection 
+    linksCollection,
 } : ResultObj) => {
 
     const links = linksCollection?.items;
 
     return (
-        <section className='lg:pb-[165px] dark:bg-gradient-to-t dark:from-tertiary-green dark:to-dark-tertiary pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full'>
+        <section 
+            {
+                ...{
+                    className : 'lg:pb-[165px] dark:bg-gradient-to-t dark:from-tertiary-green dark:to-dark-tertiary pb-[235px] pt-[132px] relative bg-gradient-to-b from-green to-white w-full',
+                    id : 'main'
+                }
+            }
+        >
             <div className='lg:flex-row lg:space-x-8 wrapper-custom flex-col-reverse flex items-center'>
                 <div className='lg:w-1/2 w-full space-y-8'>
                     { heading &&
@@ -48,29 +63,15 @@ const Hero = ({
                                         <a key={ key }
                                             {
                                                 ...{
-                                                    href : i.link,
-                                                    className : 'standard-button flex items-center justify-center scale-custom ' + ( key === 0 ? 'bg-primary-green' : 'bg-black')
+                                                    href : i?.linkToAsset?.url ? i?.linkToAsset?.url : i.link,
+                                                    className : 'standard-button flex items-center justify-center scale-custom ' + ( key === 0 ? 'bg-primary-green' : 'bg-black'),
+                                                    target : ( i.target == 'Blank' ? '_blank' : '_self'),
+                                                    rel : 'noopener'
                                                 }
                                             }
                                         >
                                             { i?.title }
-                                            { key === 0 ? 
-                                            <MailLogo 
-                                                {
-                                                    ...{
-                                                        className : 'w-6 ml-1.5 standard-svg'
-                                                    }
-                                                }
-                                            />
-                                            :
-                                            <DownloadLogo 
-                                                {
-                                                    ...{
-                                                        className : 'w-6 ml-1 standard-svg'
-                                                    }
-                                                }
-                                            />
-                                            }
+                                            { RenderLinkSvg ( i?.svg, 'w-6 ml-1.5 standard-svg' )}
                                         </a>
                                     )
                                 })
