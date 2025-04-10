@@ -1,8 +1,8 @@
-import { FeatureObj } from '@/app/utility/types';
 import { useState } from 'react';
-import { RightChevron } from '../utility/svgs';
+import { FeatureObj } from '@/app/utility/types';
+import { RightChevron } from '@/app/utility/svgs';
+import { options } from '@/app/utility/contentful-richtext';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { options } from '../utility/contentful-richtext';
 
 export const Feature = ({ 
 	setIsFeatureOpen,
@@ -18,7 +18,9 @@ export const Feature = ({
 	const [ clickTime, setClickTime ] = useState<number>( 0 );
 
 	const onMouseDownClick = () => {
+
 		setClickTime( Date.now() );
+
 	}
 
 	const onFeatureClick = () => {
@@ -79,7 +81,7 @@ export const Feature = ({
 						{ title }
 					</h2>
 				}
-				{ labels?.length > 0 &&
+				{ ( labels && labels?.length > 0 ) &&
 					<ul 
 						{
 							...{

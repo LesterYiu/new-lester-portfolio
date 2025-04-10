@@ -1,14 +1,14 @@
 'use client'
 
 import "wicg-inert";
+import { useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
-import { FeatureObj } from '../utility/types';
-import Feature from './Feature';
-import ButtonGroup from './Button-Group';
+import Feature from '@/app/components/Feature';
+import ButtonGroup from '@/app/components/Button-Group';
+import FeaturePopup from '@/app/components/Feature-Popup';
+import { FeatureObj } from '@/app/utility/types';
 import { StarSvg } from '@/app/utility/svgs';
-import { useState } from 'react';
-import FeaturePopup from './Feature-Popup';
 
 interface Collection {
 	featureCardsCollection : {

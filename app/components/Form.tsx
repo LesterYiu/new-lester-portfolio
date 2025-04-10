@@ -1,8 +1,8 @@
 'use client'
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { CheckSvg, SendSvg, StarSvg } from "../utility/svgs";
-import { ResultObj } from "../utility/types";
+import { CheckSvg, SendSvg, StarSvg } from "@/app/utility/svgs";
+import { ResultObj } from "@/app/utility/types";
 import { options } from '@/app/utility/contentful-richtext';
 import { FormEvent, useState } from "react";
 
@@ -63,7 +63,7 @@ const Form = ({
         const res = await fetch( "/api/form-submit", {
             method : "POST",
             headers: {
-                "Content-Type": "application/json", // Ensures JSON format
+                "Content-Type": "application/json"
             },
             body : JSON.stringify( templateParams )
         })

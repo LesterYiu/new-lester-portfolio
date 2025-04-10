@@ -1,11 +1,11 @@
+import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Link, ResultObj } from '@/app/utility/types';
 import { options } from '@/app/utility/contentful-richtext';
-import Image from 'next/image';
+import { RenderLinkSvg  } from '@/app/utility/utility-functions';
+import { StarSvg } from '@/app/utility/svgs';
 import CardBackground from '@/public/blob-2.png';
 import DarkCardBackground from '@/public/blob-2-dark.png';
-import { RenderLinkSvg  } from '../utility/utility-functions';
-import { StarSvg } from '../utility/svgs';
 
 export const Card = ({ 
     cardDescription, 

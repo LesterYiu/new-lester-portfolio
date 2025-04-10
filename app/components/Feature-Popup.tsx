@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { ExitSvg, LeftChevron, RightChevron } from "../utility/svgs";
-import { useEffect, useState } from "react";
-import { FeatureObj } from "../utility/types";
 import "wicg-inert";
-import { focusTrap } from "../utility/utility-functions";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { ExitSvg, LeftChevron, RightChevron } from '@/app/utility/svgs';
+import { FeatureObj } from '@/app/utility/types';
+import { focusTrap } from '@/app/utility/utility-functions';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { options } from "../utility/contentful-richtext";
+import { options } from "@/app/utility/contentful-richtext";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
@@ -189,7 +189,7 @@ export const FeaturePopup = ({
                                         }
                                     }
                                 >
-                                    { currentProject?.tags.map( ( tag : number, key : number ) => {
+                                    { currentProject?.tags.map( ( tag : string, key : number ) => {
                                     return(
                                         <li key={ key }
                                             {

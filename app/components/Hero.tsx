@@ -1,10 +1,10 @@
 import Image from 'next/image';
+import { ResultObj } from '@/app/utility/types';
+import { RenderLinkSvg } from '@/app/utility/utility-functions';
 import HeroBackground from '@/public/blob.png';
 import DarkHeroBackground from '@/public/blob-dark.png';
 import WaveImage from '@/public/wave.png';
 import DarkWaveImage from '@/public/wave-dark.png';
-import { ResultObj } from '../utility/types';
-import { RenderLinkSvg } from '../utility/utility-functions';
 
 interface AssetObject {
     url : string

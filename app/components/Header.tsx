@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 import Logo from '@/public/logo-header.png';
 import DarkLogo from '@/public/logo-white.png';
 import { ExitSvg, GearLogo, HamburgerSvg } from '@/app/utility/svgs';
-import { Link } from '../utility/types';
-import { RenderLinkSvg, focusTrap } from '../utility/utility-functions';
+import { Link } from '@/app/utility/types';
+import { RenderLinkSvg, focusTrap } from '@/app/utility/utility-functions';
 import Settings from './Settings-Popup';
 import "wicg-inert";
 

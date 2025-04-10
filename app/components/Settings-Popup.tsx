@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { MoonSvg, Redo, SunSvg } from "../utility/svgs";
 import "wicg-inert";
-import { focusTrap } from "../utility/utility-functions";
+import { useEffect, useState } from "react";
+import { MoonSvg, Redo, SunSvg } from "@/app/utility/svgs";
+import { focusTrap } from "@/app/utility/utility-functions";
 
 interface SettingsProps {
     setIsSettingsOpen : React.Dispatch<React.SetStateAction<boolean>>;
