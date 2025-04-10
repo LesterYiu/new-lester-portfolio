@@ -64,7 +64,7 @@ export const Feature = ({
 		>
 			<div className='relative space-y-4 p-6 flex flex-col h-full'>
 				{ image &&
-					<div className='dark:bg-white dark:rounded-3xl dark:p-3 h-48 flex justify-center'>
+					<div className='dark:bg-white dark:rounded-3xl dark:p-3 flex justify-center'>
 						<img 
 							{
 								...{
