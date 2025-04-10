@@ -39,9 +39,11 @@ export const Settings = ({
 
             localStorage.motionMode === 'reduced' ? setMotionMode( 'reduced' ) : setMotionMode( 'normal' )
 
+            if ( localStorage.motionMode === 'reduced' ) htmlEl?.classList.remove( 'scroll-smooth' );
+
         } else {
 
-            htmlEl?.setAttribute( 'data-motion', 'reduced' );
+            htmlEl?.setAttribute( 'data-motion', 'normal' );
 
         };
 

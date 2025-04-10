@@ -89,7 +89,7 @@ const Form = ({
             <section 
                 {
                     ...{
-                        className : 'lg:flex-row lg:space-x-8 lg:space-y-0 relative space-y-8 wrapper-custom flex flex-col items-center mb-[125px]',
+                        className : 'lg:flex-row lg:space-x-8 lg:space-y-0 relative space-y-8 wrapper-custom flex flex-col mb-[125px]',
                         id : ( sectionId || undefined )
                     }
                 }
