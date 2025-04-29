@@ -1,16 +1,19 @@
 import "wicg-inert";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExitSvg, LeftChevron, RightChevron } from '@/app/utility/svgs';
 import { FeatureObj } from '@/app/utility/types';
 import { focusTrap } from '@/app/utility/utility-functions';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { options } from "@/app/utility/contentful-richtext";
+import Headroom from "headroom.js";
 
 interface FeaturePopupProps {
     setIsFeatureOpen : React.Dispatch<React.SetStateAction<boolean>>;
-    isFeatureOpen : boolean;
     setFeatureNum : React.Dispatch<React.SetStateAction<number>>;
+    setSelectedFeature : React.Dispatch<React.SetStateAction<FeatureObj | null>>;
+    selectedFeature : FeatureObj | null;
+    isFeatureOpen : boolean;
     featureNum : number;
     carouselArr : any;
 }
@@ -20,14 +23,14 @@ export const FeaturePopup = ({
     isFeatureOpen, 
     setFeatureNum, 
     featureNum,
-    carouselArr
+    carouselArr,
+    setSelectedFeature,
+    selectedFeature
 } : FeaturePopupProps ) => {
-    
-    const [ currentProject, setCurrentProject ] = useState<FeatureObj | null>( null );
+
+    const popupNav = useRef<HTMLDivElement | null>( null );
 
     useEffect( () => {
-
-        setCurrentProject( carouselArr[ featureNum ] );
 
         if ( isFeatureOpen ) {
 
@@ -40,7 +43,21 @@ export const FeaturePopup = ({
             document.querySelector('html')?.classList.remove( 'popup-active' )
 
         }
+
+        const scroller = document.querySelector( '#featurePopUp');
+
+        if ( scroller instanceof HTMLElement && popupNav.current ) {
+
+            const headroom = new Headroom(popupNav.current as HTMLElement, {
+                scroller: scroller,
+                offset: 100,
+                tolerance: 5
+            });
+          
+            headroom.init();
         
+        }
+
         const featurePopUpEl = document.getElementById( 'featurePopUp' );
 
         isFeatureOpen ? featurePopUpEl?.removeAttribute( 'inert' ) : featurePopUpEl?.setAttribute( 'inert', '' );
@@ -53,15 +70,15 @@ export const FeaturePopup = ({
 
         if ( featureNum === 0 ) {
 
-            setCurrentProject( carouselArr[ carouselArr?.length - 1 ] );
+            setSelectedFeature( carouselArr[ carouselArr?.length - 1 ] );
 
             setFeatureNum( carouselArr?.length - 1 );
 
         } else {
 
-            setCurrentProject( carouselArr[ featureNum - 1 ] );
+            setSelectedFeature( carouselArr[ featureNum - 1 ] );
 
-            setFeatureNum( featureNum - 1);            
+            setFeatureNum( featureNum - 1 );            
 
         }
 
@@ -71,12 +88,12 @@ export const FeaturePopup = ({
 
         if ( featureNum === carouselArr?.length - 1 ) {
 
-            setCurrentProject( carouselArr[ 0 ] )
+            setSelectedFeature( carouselArr[ 0 ] )
             setFeatureNum( 0 );
 
         } else {
          
-            setCurrentProject( carouselArr[ featureNum + 1 ] )
+            setSelectedFeature( carouselArr[ featureNum + 1 ] )
             setFeatureNum( featureNum + 1 ); 
         }
 
@@ -102,11 +119,11 @@ export const FeaturePopup = ({
                     }
                 >
                     <div className='md:mr-16 md:space-x-8 flex'>
-                        { currentProject?.image &&
+                        { selectedFeature?.image &&
                             <Image
                                 {
                                     ...{
-                                        src : currentProject?.image?.url,
+                                        src : selectedFeature?.image?.url,
                                         alt : '',
                                         width : 500,
                                         height : 500,
@@ -117,22 +134,22 @@ export const FeaturePopup = ({
                             />
                         }
                         <div className='flex flex-col gap-y-4'>
-                            { currentProject?.title &&
+                            { selectedFeature?.title &&
                                 <h3 className='dark-text md:mr-0 mr-14 font-jost font-medium text-3xl'>
-                                    { currentProject?.title }
+                                    { selectedFeature?.title }
                                 </h3>
                             }
-                            { ( currentProject?.previewLink || currentProject?.sourceLink ) &&
+                            { ( selectedFeature?.previewLink || selectedFeature?.sourceLink ) &&
                                 <div className='dark-text space-x-4'>
                                     <p className='font-jost inline-block text-lg'>
                                         Explore:
                                     </p>
-                                    { currentProject?.previewLink &&
+                                    { selectedFeature?.previewLink &&
                                         <a 
                                             {
                                                 ...{
-                                                    href : currentProject?.previewLink?.link,
-                                                    target : ( currentProject?.previewLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                    href : selectedFeature?.previewLink?.link,
+                                                    target : ( selectedFeature?.previewLink?.target == 'Blank' ? '_blank' : '_self'),
                                                     rel : 'noopener',
                                                     className : 'font-jost underline !ml-2 text-lg'
                                                 }
@@ -141,12 +158,12 @@ export const FeaturePopup = ({
                                             Live Site
                                         </a>
                                     }
-                                    { currentProject?.sourceLink &&
+                                    { selectedFeature?.sourceLink &&
                                         <a 
                                             {
                                                 ...{
-                                                    href : currentProject?.sourceLink?.link,
-                                                    target : ( currentProject?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
+                                                    href : selectedFeature?.sourceLink?.link,
+                                                    target : ( selectedFeature?.sourceLink?.target == 'Blank' ? '_blank' : '_self'),
                                                     rel : 'noopener',
                                                     className : 'dark-text font-jost underline text-lg'
                                                 }
@@ -157,11 +174,11 @@ export const FeaturePopup = ({
                                     }
                                 </div>
                             }
-                            { currentProject?.image &&
+                            { selectedFeature?.image &&
                                 <Image
                                     {
                                         ...{
-                                            src : currentProject?.image?.url,
+                                            src : selectedFeature?.image?.url,
                                             alt : '',
                                             width : 500,
                                             height : 500,
@@ -171,14 +188,14 @@ export const FeaturePopup = ({
                                     }
                                 />
                             }
-                            { currentProject?.featureDescription?.json &&
+                            { selectedFeature?.featureDescription?.json &&
                                 <div className='dark-text description-custom'>
                                     {
-                                        documentToReactComponents( currentProject?.featureDescription.json, options )
+                                        documentToReactComponents( selectedFeature?.featureDescription.json, options )
                                     }
                                 </div>
                             }
-                            { currentProject?.tags &&
+                            { selectedFeature?.tags &&
                                 <div className='flex gap-x-4 gap-y-2 flex-wrap'>
                                     <p className='dark-text description-custom'>
                                         Project Tech Stack:
@@ -190,7 +207,7 @@ export const FeaturePopup = ({
                                             }
                                         }
                                     >
-                                        { currentProject?.tags.map( ( tag : string, key : number ) => {
+                                        { selectedFeature?.tags.map( ( tag : string, key : number ) => {
                                         return(
                                             <li key={ key }
                                                 {
@@ -208,73 +225,76 @@ export const FeaturePopup = ({
                             }
                         </div>
                     </div>
-                    { currentProject?.previewImageDesktop?.url &&
+                    { selectedFeature?.previewImageDesktop?.url &&
                         <Image 
                             {
                                 ...{
-                                    src : currentProject?.previewImageDesktop?.url,
+                                    src : selectedFeature?.previewImageDesktop?.url,
                                     alt : '',
                                     width : 2000,
                                     height : 2000,
                                     quality : 100,
-                                    className : 'md:inline-block hidden relative z-[10] mx-auto max-h-[550px] object-contain'
+                                    className : 'md:inline-block hidden relative z-[10] mx-auto max-h-[550px] object-contain pb-[114px]'
                                 }
                             }
                         />
                     }
-                    { currentProject?.previewImageMobile?.url &&
+                    { selectedFeature?.previewImageMobile?.url &&
                         <Image 
                             {
                                 ...{
-                                    src : currentProject?.previewImageMobile?.url,
+                                    src : selectedFeature?.previewImageMobile?.url,
                                     alt : '',
                                     width : 2000,
                                     height : 2000,
                                     quality : 100,
-                                    className : 'md:hidden inline-block relative z-[10] mx-auto w-full object-contain'
+                                    className : 'md:hidden inline-block relative z-[10] mx-auto w-full object-contain pb-[114px]'
                                 }
                             }
                         />
                     }
-                    <div className='flex justify-between pb-9'>
-                        <button 
-                            {
-                                ...{
-                                    className : 'md:flex-row md:items-center items-start flex-col font-jost flex text-lg',
-                                    onClick : onPrevProject
-                                }
+                    <div 
+                        {
+                            ...{
+                                ref : popupNav,
+                                className : 'popup-headroom fixed transition-all duration-200 bottom-0 left-0 z-[10] right-0 flex justify-between pb-8 !m-0'
                             }
-                        >
-                            <LeftChevron 
+                        }
+                    >
+                        <div className='wrapper-custom pr-8 w-[calc(100%-2rem)] flex justify-between'>
+                            <button 
                                 {
                                     ...{
-                                        className : 'dark:stroke-white  h-8 w-8 mr-2'
+                                        className : 'border-none bg-white rounded-full shadow p-2 border border-grey scale-custom font-jost text-lg',
+                                        onClick : onPrevProject
                                     }
                                 }
-                            />
-                            <span className='dark-text interact-none'>
-                                Previous Project
-                            </span>
-                        </button>
-                        <button 
-                            {
-                                ...{
-                                    className : 'md:flex-row md:items-center items-end flex-col-reverse font-jost flex text-lg',
-                                    onClick : onNextProject
-                                }
-                            }
-                        >
-                            <span className='dark-text interact-none'>
-                                Next Project
-                            </span>
-                            <RightChevron 
+                            >
+                                <LeftChevron 
+                                    {
+                                        ...{
+                                            className : 'h-8 w-8'
+                                        }
+                                    }
+                                />
+                            </button>
+                            <button 
                                 {
                                     ...{
-                                        className : 'dark:stroke-white  h-8 w-8 ml-2'
+                                        className : 'border-none bg-white rounded-full shadow p-2 border border-grey scale-custom font-jost text-lg',
+                                        onClick : onNextProject
                                     }
                                 }
-                            />
-                        </button>
+                            >
+                                <RightChevron 
+                                    {
+                                        ...{
+                                            className : 'h-8 w-8'
+                                        }
+                                    }
+                                />
+                            </button>
+                        </div>
                     </div>
                     <button 
                         {

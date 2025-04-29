@@ -28,6 +28,8 @@ export const FeatureCarousel = ( {
 
 	const [ isFeatureOpen, setIsFeatureOpen ] = useState<boolean>( false );
 
+	const [ selectedFeature, setSelectedFeature ] = useState<FeatureObj | null >( null );
+
 	const [ featureNum, setFeatureNum ] = useState( 0 );
 
 	const carouselArr = featureCardsCollection?.items;
@@ -106,7 +108,10 @@ export const FeatureCarousel = ( {
 										title : i?.title,
 										featureDescription: i?.featureDescription,
 										labels: i?.labels,
-										image: i?.image
+										image: i?.image,
+										setSelectedFeature,
+										selectedFeature,
+										carouselArr
 									}
 								}
 							/>
@@ -121,7 +126,9 @@ export const FeatureCarousel = ( {
 						isFeatureOpen,
 						setFeatureNum,
 						featureNum,
-						carouselArr
+						carouselArr,
+						selectedFeature,
+						setSelectedFeature
 					}
 				}
 			/>

@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { FeatureObj } from '@/app/utility/types';
+import { FeatureObj, PropsObj } from '@/app/utility/types';
 import { RightChevron } from '@/app/utility/svgs';
 import { options } from '@/app/utility/contentful-richtext';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+interface FeatureProps extends FeatureObj{
+    setSelectedFeature : React.Dispatch<React.SetStateAction<FeatureObj | null>>;
+    selectedFeature : FeatureObj | null;
+	carouselArr : [ FeatureObj ]
+}
 
 export const Feature = ({ 
 	setIsFeatureOpen,
@@ -12,8 +18,10 @@ export const Feature = ({
 	title, 
 	featureDescription, 
 	image, 
-	labels
-} : FeatureObj ) => {
+	labels,
+	setSelectedFeature,
+	carouselArr
+} : FeatureProps ) => {
 
 	const [ clickTime, setClickTime ] = useState<number>( 0 );
 
@@ -33,8 +41,7 @@ export const Feature = ({
 		
 				setIsFeatureOpen?.( true );
 
-				setFeatureNum( arrayKey );
-
+				setSelectedFeature( carouselArr[ arrayKey ] )
 			}
 
 		}, 0)

@@ -64,7 +64,7 @@ const Header = ({
                 {
                     ...{
                         ref : headerRef,
-                        className : 'reduce-motion:transition-none z-[100] w-full ease-in-out duration-500 headroom'
+                        className : 'header-headroom reduce-motion:transition-none z-[100] w-full ease-in-out duration-500 headroom'
                     }
                 }
             >
