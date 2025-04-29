@@ -1,7 +1,7 @@
 'use client'
 
 import "wicg-inert";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import Feature from '@/app/components/Feature';
@@ -32,7 +32,17 @@ export const FeatureCarousel = ( {
 
 	const [ featureNum, setFeatureNum ] = useState( 0 );
 
+	const [ scrollbarWidth, setScrollbarWidth ] = useState<number>( 0 );
+
 	const carouselArr = featureCardsCollection?.items;
+
+	useEffect( () => {
+
+		if ( ! window ) return
+
+		setScrollbarWidth( window.innerWidth - document.documentElement.clientWidth )
+
+	}, [])
 
 	if ( ! carouselArr?.length ) return;
 
@@ -128,7 +138,8 @@ export const FeatureCarousel = ( {
 						featureNum,
 						carouselArr,
 						selectedFeature,
-						setSelectedFeature
+						setSelectedFeature,
+						scrollbarWidth
 					}
 				}
 			/>

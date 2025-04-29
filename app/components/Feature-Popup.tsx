@@ -16,6 +16,7 @@ interface FeaturePopupProps {
     isFeatureOpen : boolean;
     featureNum : number;
     carouselArr : any;
+    scrollbarWidth : number;
 }
 
 export const FeaturePopup = ({ 
@@ -25,7 +26,8 @@ export const FeaturePopup = ({
     featureNum,
     carouselArr,
     setSelectedFeature,
-    selectedFeature
+    selectedFeature,
+    scrollbarWidth
 } : FeaturePopupProps ) => {
 
     const popupNav = useRef<HTMLDivElement | null>( null );
@@ -57,7 +59,7 @@ export const FeaturePopup = ({
             headroom.init();
         
         }
-
+        
         const featurePopUpEl = document.getElementById( 'featurePopUp' );
 
         isFeatureOpen ? featurePopUpEl?.removeAttribute( 'inert' ) : featurePopUpEl?.setAttribute( 'inert', '' );
@@ -257,7 +259,7 @@ export const FeaturePopup = ({
                         {
                             ...{
                                 ref : popupNav,
-                                className : 'popup-headroom fixed compensate-scrollbar transition-all duration-200 bottom-0 left-0 z-[10] right-0 flex justify-between pb-8 !m-0'
+                                className : 'popup-headroom fixed transition-all duration-200 bottom-0 left-0 z-[10] right-0 flex justify-between pb-8 !m-0'
                             }
                         }
                     >
@@ -282,7 +284,10 @@ export const FeaturePopup = ({
                                 {
                                     ...{
                                         className : 'border-none bg-white rounded-full shadow p-2 border border-grey scale-custom font-jost text-lg',
-                                        onClick : onNextProject
+                                        onClick : onNextProject,
+                                        style : {
+                                            'marginRight' : scrollbarWidth + 'px'
+                                        }
                                     }
                                 }
                             >
