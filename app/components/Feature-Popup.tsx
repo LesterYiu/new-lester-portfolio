@@ -257,11 +257,11 @@ export const FeaturePopup = ({
                         {
                             ...{
                                 ref : popupNav,
-                                className : 'popup-headroom fixed transition-all duration-200 bottom-0 left-0 z-[10] right-0 flex justify-between pb-8 !m-0'
+                                className : 'popup-headroom fixed compensate-scrollbar transition-all duration-200 bottom-0 left-0 z-[10] right-0 flex justify-between pb-8 !m-0'
                             }
                         }
                     >
-                        <div className='wrapper-custom pr-8 w-[calc(100%-2rem)] flex justify-between'>
+                        <div className='wrapper-custom pr-8 w-full flex justify-between'>
                             <button 
                                 {
                                     ...{

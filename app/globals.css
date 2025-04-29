@@ -186,6 +186,9 @@ html.popup-active {
     overflow-y: hidden;
 }
 
+.compensate-scrollbar {
+    padding-right: var(--scrollbar-compensate, 1rem);
+}
 
 @media (max-width: 767px) {
     
