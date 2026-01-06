@@ -20,7 +20,7 @@ export const Card = ({
     const linksArr = linksCollection?.items;
 
     return (
-        <div className='dark-bg'>
+        <div className='dark-bg' suppressHydrationWarning>
             <section 
                 {
                     ...{

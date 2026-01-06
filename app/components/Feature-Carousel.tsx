@@ -3,6 +3,7 @@
 import "wicg-inert";
 import { useEffect, useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
+// @ts-ignore
 import Carousel from 'react-multi-carousel';
 import Feature from '@/app/components/Feature';
 import ButtonGroup from '@/app/components/Button-Group';

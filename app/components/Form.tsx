@@ -85,7 +85,7 @@ const Form = ({
 
     return (
 
-        <div className='dark-bg'>
+        <div className='dark-bg' suppressHydrationWarning>
             <section 
                 {
                     ...{

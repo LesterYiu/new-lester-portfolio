@@ -191,7 +191,7 @@ export default async function RootLayout({
 					}
 				/>
 			</head>
-			<body className='dark-bg'>
+			<body className='dark-bg' suppressHydrationWarning>
 				<a 
 					{
 						...{

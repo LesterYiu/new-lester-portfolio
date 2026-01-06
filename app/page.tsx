@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 export default async function Page() {
 
-	const { isEnabled } = draftMode();
+	const { isEnabled } = await draftMode();
 	const results = await getPageData( isEnabled, '/' );
 	const headerData = results?.header;
 	const contentCollection = results?.contentBlocksCollection?.items;

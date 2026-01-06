@@ -73,9 +73,13 @@ export const Settings = ({
 
     const resetSettings = () => {
 
-        document.querySelector( 'html' )?.setAttribute( 'data-theme', 'light' );
+        const htmlEl = document.querySelector( 'html' );
 
-        document.querySelector( 'html' )?.setAttribute( 'data-motion', 'normal' );
+        htmlEl?.setAttribute( 'data-theme', 'light' );
+
+        htmlEl?.setAttribute( 'data-motion', 'normal' );
+
+        htmlEl?.classList.add( 'scroll-smooth' );
 
         setTheme( 'light' );
 
